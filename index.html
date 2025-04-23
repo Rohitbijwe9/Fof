@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fish O Fish</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* [All CSS remains unchanged — paste the full CSS here] */
+  </style>
+</head>
+<body>
 
+  <nav>
+    <a href="#carousel"><img src="images/logo.png" alt="Logo" class="logo-img"></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <section id="carousel" class="carousel">
+    <div class="carousel-images">
+      <img src="images/fof5.jpg" alt="Fish">
+      <img src="images/fish1.jpg" alt="Fish">
+      <img src="images/fof1.jpg" alt="Fish Tank">
+      <img src="images/fish2.jpg" alt="Fish">
+      <img src="images/fof4.jpg" alt="Dog Food & Accessories">
+      <img src="images/fish3.jpg" alt="Fish">
+      <img src="images/fish4.jpg" alt="Fish">
+    </div>
+    <div class="arrow prev">&#10094;</div>
+    <div class="arrow next">&#10095;</div>
+    <div class="dots-container"></div>
+  </section>
+
+  <section class="intro">
+    <h2>Name of Confidence in Aquarium World</h2>
+    <p>Your trusted partner for everything related to aquariums and pet care. We offer a wide variety of fish, tanks, accessories, and food for all your pets' needs. Whether you're a beginner or an experienced pet lover, we provide the best products to help you create the perfect environment for your pets. Let us help you find everything your aquatic and pet friends need!</p>
+    <a href="https://wa.me/919579991888" class="whatsapp-btn" target="_blank">Inquire on WhatsApp</a>
+  </section>
+
+  <section id="offerings" class="offerings">
+    <h2>We Deal With</h2>
+    <div class="card">
+      <div class="icon">🐠</div>
+      <h3>Fish</h3>
+      <p>Fresh & exotic species plus food & medicine.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🐟🌊</div>
+      <h3>Aquarium Tanks</h3>
+      <p>Custom tanks with decorative toys & accessories.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🐦</div>
+      <h3>Birds & Cages</h3>
+      <p>Colorful birds in stylish, safe cages with food.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🐕</div>
+      <h3>Dogs & Accessories</h3>
+      <p>Premium dog food, toys, and essential accessories.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 All Rights Reserved By Fish O Fish | Developed and Managed by Rohit Bijwe</p>
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.carousel-images img');
+    const prev = document.querySelector('.arrow.prev');
+    const next = document.querySelector('.arrow.next');
+    const dotsCt = document.querySelector('.dots-container');
+    let current = 0, interval;
+
+    slides.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'dot';
+      d.addEventListener('click', () => showSlide(i));
+      dotsCt.appendChild(d);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(idx) {
+      current = (idx + slides.length) % slides.length;
+      document.querySelector('.carousel-images')
+        .style.transform = `translateX(-${current * 100}vw)`;
+      dots.forEach(d => d.classList.remove('active'));
+      dots[current].classList.add('active');
+    }
+
+    function nextSlide() { showSlide(current + 1); }
+    function prevSlide() { showSlide(current - 1); }
+
+    prev.addEventListener('click', prevSlide);
+    next.addEventListener('click', nextSlide);
+
+    document.querySelector('.carousel')
+      .addEventListener('mouseenter', () => clearInterval(interval));
+
+    document.querySelector('.carousel')
+      .addEventListener('mouseleave', () => interval = setInterval(nextSlide, 3000));
+
+    showSlide(0);
+    interval = setInterval(nextSlide, 3000);
+  </script>
+</body>
+</html>
