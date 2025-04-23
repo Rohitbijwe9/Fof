@@ -37,11 +37,11 @@
     }
 
     .logo-img {
-        height: 120px;
-        width: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
 
     .nav-links {
       display: flex;
@@ -250,24 +250,23 @@
 <body>
 
   <nav>
-<a href="#carousel"><img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/logo.png" alt="Logo" class="logo-img"></a>
+    <a href="#carousel"><img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/logo.png" alt="Logo" class="logo-img"></a>
     <div class="nav-links">
-<a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
-<a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
-<a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
+      <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
+      <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
+      <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
     </div>
   </nav>
 
   <section id="carousel" class="carousel">
     <div class="carousel-images">
-<img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof5.jpg" alt="Fish">
-<img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish1.jpg" alt="Fish">
-<img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof1.jpg" alt="Fish Tank">
-<img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish2.jpg" alt="Fish">
-<img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof4.jpg" alt="Dog Food & Accessories">
-<img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish3.jpg" alt="Fish">
-<img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish4.jpg" alt="Fish">
-
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof5.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish1.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof1.jpg" alt="Fish Tank">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish2.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof4.jpg" alt="Dog Food & Accessories">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish3.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish4.jpg" alt="Fish">
     </div>
     <div class="arrow prev">&#10094;</div>
     <div class="arrow next">&#10095;</div>
@@ -288,7 +287,7 @@
       <p>Fresh & exotic species plus food & medicine.</p>
     </div>
     <div class="card">
-      <div class="icon">🐟🌊</div> <!-- Updated emoji for Aquarium Tanks -->
+      <div class="icon">🐟🌊</div>
       <h3>Aquarium Tanks</h3>
       <p>Custom tanks with decorative toys & accessories.</p>
     </div>
@@ -303,7 +302,7 @@
       <p>Premium dog food, toys, and essential accessories.</p>
     </div>
   </section>
-  
+
   <footer>
     <p>© 2025 All Rights Reserved By Fish O Fish | Developed and Managed by Rohit Bijwe</p>
   </footer>
@@ -313,7 +312,8 @@
     const prev = document.querySelector('.arrow.prev');
     const next = document.querySelector('.arrow.next');
     const dotsCt = document.querySelector('.dots-container');
-    let current = 0, interval;
+    let current = 0;
+    let interval;
 
     slides.forEach((_, i) => {
       const d = document.createElement('div');
@@ -326,8 +326,7 @@
 
     function showSlide(idx) {
       current = (idx + slides.length) % slides.length;
-      document.querySelector('.carousel-images')
-        .style.transform = `translateX(-${current * 100}vw)`;
+      document.querySelector('.carousel-images').style.transform = `translateX(-${current * 100}vw)`;
       dots.forEach(d => d.classList.remove('active'));
       dots[current].classList.add('active');
     }
@@ -338,18 +337,19 @@
     prev.addEventListener('click', prevSlide);
     next.addEventListener('click', nextSlide);
 
-    // Pause the slideshow when mouse hovers on the carousel
-    document.querySelector('.carousel')
-      .addEventListener('mouseenter', () => clearInterval(interval));
-    document.querySelector('.carousel')
-      .addEventListener('mouseleave', () => startSlideshow());
-
-    function startSlideshow() {
-      interval = setInterval(nextSlide, 3000);
+    function startAutoSlide() {
+      interval = setInterval(nextSlide, 4000);
     }
-    
-    startSlideshow();
+
+    function stopAutoSlide() {
+      clearInterval(interval);
+    }
+
+    document.querySelector('.carousel').addEventListener('mouseover', stopAutoSlide);
+    document.querySelector('.carousel').addEventListener('mouseout', startAutoSlide);
+
     showSlide(0);
+    startAutoSlide();
   </script>
 
 </body>
