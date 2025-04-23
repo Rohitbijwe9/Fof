@@ -6,7 +6,245 @@
   <title>Fish O Fish</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
-    /* [All CSS remains unchanged — paste the full CSS here] */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+      color: #004d40;
+      overflow-x: hidden;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 8%;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .logo-img {
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #004d40;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00bfa5;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 1s ease-in-out;
+      height: 100%;
+    }
+
+    .carousel-images img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+      padding: 10px;
+      user-select: none;
+      transition: background 0.3s;
+    }
+
+    .arrow:hover {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+    }
+
+    .arrow.prev {
+      left: 20px;
+    }
+
+    .arrow.next {
+      right: 20px;
+    }
+
+    .dots-container {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .dot.active {
+      background: #009688;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 80px 10%;
+      background: #00796b;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
+
+    .intro h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+
+    .whatsapp-btn {
+      background-color: #25D366;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #128C7E;
+    }
+
+    .offerings {
+      padding: 60px 8%;
+      background: #f0fdfb;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .offerings h2 {
+      grid-column: span 2;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #00796b;
+      text-align: center;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card .icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #00796b;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background: #004d40;
+      color: #fff;
+      text-align: center;
+      padding: 25px 10px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 5%;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .logo-img {
+        height: 70px;
+        width: 70px;
+      }
+
+      .carousel {
+        height: 80vh;
+      }
+
+      .carousel-images img {
+        height: 80vh;
+      }
+
+      .offerings {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -14,7 +252,7 @@
   <nav>
     <a href="#carousel"><img src="images/logo.png" alt="Logo" class="logo-img"></a>
     <div class="nav-links">
-      <a href="index.html">Home</a>
+      <a href="home.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -49,7 +287,7 @@
       <p>Fresh & exotic species plus food & medicine.</p>
     </div>
     <div class="card">
-      <div class="icon">🐟🌊</div>
+      <div class="icon">🐟🌊</div> <!-- Updated emoji for Aquarium Tanks -->
       <h3>Aquarium Tanks</h3>
       <p>Custom tanks with decorative toys & accessories.</p>
     </div>
@@ -64,7 +302,7 @@
       <p>Premium dog food, toys, and essential accessories.</p>
     </div>
   </section>
-
+  
   <footer>
     <p>© 2025 All Rights Reserved By Fish O Fish | Developed and Managed by Rohit Bijwe</p>
   </footer>
@@ -99,14 +337,19 @@
     prev.addEventListener('click', prevSlide);
     next.addEventListener('click', nextSlide);
 
+    // Pause the slideshow when mouse hovers on the carousel
     document.querySelector('.carousel')
       .addEventListener('mouseenter', () => clearInterval(interval));
-
     document.querySelector('.carousel')
-      .addEventListener('mouseleave', () => interval = setInterval(nextSlide, 3000));
+      .addEventListener('mouseleave', () => startSlideshow());
 
+    function startSlideshow() {
+      interval = setInterval(nextSlide, 3000);
+    }
+    
+    startSlideshow();
     showSlide(0);
-    interval = setInterval(nextSlide, 3000);
   </script>
+
 </body>
 </html>
