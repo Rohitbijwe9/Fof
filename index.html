@@ -37,8 +37,8 @@
     }
 
     .logo-img {
-      height: 120px;
-      width: 120px;
+      height: 100px;
+      width: 100px;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -68,7 +68,7 @@
 
     .carousel-images {
       display: flex;
-      transition: transform 1s ease-in-out;
+      transition: transform 0.8s ease-in-out;
       height: 100%;
     }
 
@@ -89,6 +89,7 @@
       padding: 10px;
       user-select: none;
       transition: background 0.3s;
+      z-index: 10;
     }
 
     .arrow:hover {
@@ -110,6 +111,7 @@
       left: 50%;
       transform: translateX(-50%);
       display: flex;
+      z-index: 10;
     }
 
     .dot {
@@ -131,8 +133,6 @@
       padding: 80px 10%;
       background: #00796b;
       color: #ffffff;
-      position: relative;
-      overflow: hidden;
       border-bottom-left-radius: 50px;
       border-bottom-right-radius: 50px;
     }
@@ -157,6 +157,7 @@
       border-radius: 5px;
       text-decoration: none;
       transition: background-color 0.3s;
+      display: inline-block;
     }
 
     .whatsapp-btn:hover {
@@ -167,17 +168,16 @@
       padding: 60px 8%;
       background: #f0fdfb;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 40px;
       text-align: center;
     }
 
     .offerings h2 {
-      grid-column: span 2;
+      grid-column: 1/-1;
       font-size: 2rem;
       margin-bottom: 40px;
       color: #00796b;
-      text-align: center;
     }
 
     .card {
@@ -186,7 +186,6 @@
       border-radius: 15px;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s;
-      text-align: center;
     }
 
     .card:hover {
@@ -241,8 +240,17 @@
         height: 80vh;
       }
 
-      .offerings {
-        grid-template-columns: 1fr;
+      .intro h2 {
+        font-size: 2rem;
+      }
+
+      .intro p {
+        font-size: 1rem;
+      }
+
+      .whatsapp-btn {
+        font-size: 1rem;
+        padding: 12px 24px;
       }
     }
   </style>
@@ -275,11 +283,11 @@
 
   <section class="intro">
     <h2>Name of Confidence in Aquarium World</h2>
-    <p>Your trusted partner for everything related to aquariums and pet care. We offer a wide variety of fish, tanks, accessories, and food for all your pets' needs. Whether you're a beginner or an experienced pet lover, we provide the best products to help you create the perfect environment for your pets. Let us help you find everything your aquatic and pet friends need!</p>
+    <p>Your trusted partner for everything related to aquariums and pet care. We offer a wide variety of fish, tanks, accessories, and food for all your pets' needs.</p>
     <a href="https://wa.me/919579991888" class="whatsapp-btn" target="_blank">Inquire on WhatsApp</a>
   </section>
 
-  <section id="offerings" class="offerings">
+  <section class="offerings">
     <h2>We Deal With</h2>
     <div class="card">
       <div class="icon">🐠</div>
@@ -311,44 +319,57 @@
     const slides = document.querySelectorAll('.carousel-images img');
     const prev = document.querySelector('.arrow.prev');
     const next = document.querySelector('.arrow.next');
-    const dotsCt = document.querySelector('.dots-container');
-    let current = 0;
-    let interval;
+    const dotsContainer = document.querySelector('.dots-container');
+    let currentSlide = 0;
+    let autoSlide;
 
-    slides.forEach((_, i) => {
-      const d = document.createElement('div');
-      d.className = 'dot';
-      d.addEventListener('click', () => showSlide(i));
-      dotsCt.appendChild(d);
-    });
-
-    const dots = document.querySelectorAll('.dot');
-
-    function showSlide(idx) {
-      current = (idx + slides.length) % slides.length;
-      document.querySelector('.carousel-images').style.transform = `translateX(-${current * 100}vw)`;
-      dots.forEach(d => d.classList.remove('active'));
-      dots[current].classList.add('active');
+    function createDots() {
+      slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => showSlide(index));
+        dotsContainer.appendChild(dot);
+      });
     }
 
-    function nextSlide() { showSlide(current + 1); }
-    function prevSlide() { showSlide(current - 1); }
+    function showSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+      document.querySelector('.carousel-images').style.transform = `translateX(-${currentSlide * 100}vw)`;
+      document.querySelectorAll('.dot').forEach((d, i) => {
+        d.classList.toggle('active', i === currentSlide);
+      });
+    }
 
-    prev.addEventListener('click', prevSlide);
-    next.addEventListener('click', nextSlide);
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
 
     function startAutoSlide() {
-      interval = setInterval(nextSlide, 4000);
+      autoSlide = setInterval(() => showSlide(currentSlide + 1), 5000);
     }
 
     function stopAutoSlide() {
-      clearInterval(interval);
+      clearInterval(autoSlide);
     }
 
-    document.querySelector('.carousel').addEventListener('mouseover', stopAutoSlide);
-    document.querySelector('.carousel').addEventListener('mouseout', startAutoSlide);
+    prev.addEventListener('click', () => {
+      stopAutoSlide();
+      prevSlide();
+      startAutoSlide();
+    });
 
-    showSlide(0);
+    next.addEventListener('click', () => {
+      stopAutoSlide();
+      nextSlide();
+      startAutoSlide();
+    });
+
+    createDots();
     startAutoSlide();
   </script>
 
