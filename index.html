@@ -46,7 +46,6 @@
     .nav-links {
       display: flex;
       gap: 30px;
-      justify-content: flex-end;
     }
 
     .nav-links a {
@@ -215,9 +214,11 @@
       padding: 25px 10px;
     }
 
-    /* Mobile adjustments */
+    /* Media Query for Mobile */
     @media (max-width: 768px) {
       nav {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center all items */
         padding: 15px 5%;
       }
 
@@ -227,13 +228,24 @@
       }
 
       .nav-links {
+        flex-direction: row; /* Keep the buttons in a row */
         gap: 20px;
-        justify-content: flex-end; /* Keeps buttons aligned to the right */
-        width: 100%;
         margin-top: 10px;
+        justify-content: center; /* Center buttons horizontally */
+      }
+
+      .whatsapp-btn {
+        font-size: 1rem;
+        padding: 12px 24px;
+      }
+
+      /* Ensure logo stays at the left and buttons are aligned properly */
+      nav a {
+        text-align: center; /* Ensure proper centering of navigation links */
       }
     }
 
+    /* Additional fixes for very small screens */
     @media (max-width: 480px) {
       .nav-links {
         gap: 10px;
@@ -251,101 +263,93 @@
       <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
     </div>
   </nav>
-    <section class="contact-section" id="contact">
-    <h2>Contact Fish O Fish</h2>
-    <p>We provide services for <strong>booking your slot</strong> or <strong>inquiry</strong>. Feel free to reach out!</p>
 
-    <div class="whatsapp-buttons">
-      <a href="https://wa.me/919579991888?text=Hi%2C%20I%20want%20to%20book%20a%20slot" target="_blank" class="btn btn-success">Book Slot</a>
-      <a href="https://wa.me/919579991888?text=Hi%2C%20I%20have%20an%20inquiry%20about%20your%20services" target="_blank" class="btn btn-outline-success">Send Inquiry</a>
+  <section id="carousel" class="carousel">
+    <div class="carousel-images">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof5.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish1.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof1.jpg" alt="Fish Tank">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish2.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof4.jpg" alt="Dog Food & Accessories">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish3.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish4.jpg" alt="Fish">
     </div>
+    <div class="arrow prev">&#10094;</div>
+    <div class="arrow next">&#10095;</div>
+    <div class="dots-container"></div>
+  </section>
 
-    <!-- Inquiry Form -->
-    {% comment %} <h2>Send Us Your Inquiry</h2>
-    <form action="https://wa.me/919579991888" method="get" target="_blank">
-      <div>
-        <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; margin-bottom: 10px; width: 100%; border-radius: 5px; border: 1px solid #ddd;" />
-      </div>
-      <div>
-        <input type="email" name="email" placeholder="Your Email" required style="padding: 10px; margin-bottom: 10px; width: 100%; border-radius: 5px; border: 1px solid #ddd;" />
-      </div>
-      <div>
-        <textarea name="message" placeholder="Your Inquiry" required style="padding: 10px; margin-bottom: 10px; width: 100%; height: 150px; border-radius: 5px; border: 1px solid #ddd;"></textarea>
-      </div>
-      <div>
-        <button type="submit" class="btn btn-outline-success">Send Inquiry</button>
-      </div>
-    </form> {% endcomment %}
+  <section class="intro">
+    <h2>Name of Confidence in Aquarium World</h2>
+    <p>Your trusted partner for everything related to aquariums and pet care. We offer a wide variety of fish, tanks, accessories, and food for all your pets' needs.</p>
+    <a href="https://wa.me/919579991888" class="whatsapp-btn" target="_blank">Inquire on WhatsApp</a>
+  </section>
 
-    <h2>Our Branches</h2>
-
-    <div class="contact-details">
-      <!-- Branch 1 -->
-      <div class="contact-card">
-        <h4>Branch 1 - Amravati</h4>
-        <p>
-          1/1, Ganesh Colony, Near Ravi Nagar,<br>
-          Opp. HDFC ATM, Shilangan Road, Rajapeth - 444605
-        </p>
-        <p><strong>Mobile:</strong> <a href="tel:9422917360">9422917360</a></p>
-        <div class="business-hours">
-          <h5>Business Hours:</h5>
-          <p>Mon–Sat: 10:00 AM - 10:00 PM<br>Sunday: Closed</p>
-        </div>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/fish_o_fish_aquarium_?igsh=ZHE4ZGtzZ3Y3Z2c2" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" /></a>
-          <a href="https://www.facebook.com/share/18vgwwyLnK/?mibextid=wwXIfr" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" /></a>
-          <a href="https://wa.me/919422917360" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" /></a>
-        </div>
-        <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.127209218551!2d77.7457662!3d20.9211335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6a4b2554193b7%3A0x1afe37912e739931!2sFish%20O%20Fish!5e0!3m2!1sen!2sin!4v1713778000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </div>
-
-      <!-- Branch 2 -->
-      <div class="contact-card">
-        <h4>Branch 2 - Karanja Lad</h4>
-        <p>
-          Opposite Harish Bichayat, Tilak Chauk,<br>
-          Karanja Lad - 444105
-        </p>
-        <p><strong>Mobile:</strong> <a href="tel:9579991888">9579991888</a></p>
-        <div class="business-hours">
-          <h5>Business Hours:</h5>
-          <p>Monday to Sunday: 10:00 AM - 10:00 PM</p>
-        </div>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/fish_o_fish_aquarium_?igsh=ZHE4ZGtzZ3Y3Z2c2" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" /></a>
-          <a href="https://www.facebook.com/share/18vgwwyLnK/?mibextid=wwXIfr" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" /></a>
-          <a href="https://wa.me/919579991888" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" /></a>
-        </div>
-        <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.278421582404!2d77.1460287!3d20.7844237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd666d3b0035b57%3A0x6cbb0b09395e7768!2sFish%20O%20Fish!5e0!3m2!1sen!2sin!4v1713778020702!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </div>
-
-      <div class="contact-card">
-        <h4>Branch 3 - Nagpur</h4>
-        <p>
-          123, New Colony, Near Central Park,<br>
-          New Location - 444999
-        </p>
-        <p><strong>Mobile:</strong> <a href="tel:9123456789">9123456789</a></p>
-        <div class="business-hours">
-          <h5>Business Hours:</h5>
-          <p>Monday to Sunday: 10:00 AM - 10:00 PM</p>
-        </div>
-        <!-- No social media icons for this branch -->
-        <!-- No Google Map for this branch -->
-      </div>
-
+  <section class="offerings">
+    <h2>We Deal With</h2>
+    <div class="card">
+      <div class="icon">🐠</div>
+      <h3>Freshwater Fish</h3>
+      <p>Explore a wide variety of freshwater fish that are perfect for your aquarium.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🐡</div>
+      <h3>Saltwater Fish</h3>
+      <p>We also offer a selection of exotic saltwater fish for enthusiasts.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🌊</div>
+      <h3>Aquarium Setup</h3>
+      <p>Complete aquarium setup services, from tanks to lighting and filtration systems.</p>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 All Rights Reserved By Fish O Fish | Developed and Managed by Rohit Bijwe</p>
-</footer>
+    <p>&copy; 2025 Fish O Fish - All Rights Reserved</p>
+  </footer>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var currentIndex = 0;
+      var images = $('.carousel-images img');
+      var dotsContainer = $('.dots-container');
+      
+      function changeImage(index) {
+        var totalImages = images.length;
+        if (index >= totalImages) index = 0;
+        if (index < 0) index = totalImages - 1;
+        currentIndex = index;
+        var offset = -100 * index + '%';
+        $('.carousel-images').css('transform', 'translateX(' + offset + ')');
+        
+        dotsContainer.children().removeClass('active');
+        dotsContainer.children().eq(index).addClass('active');
+      }
 
+      function createDots() {
+        var totalImages = images.length;
+        for (var i = 0; i < totalImages; i++) {
+          dotsContainer.append('<div class="dot" data-index="' + i + '"></div>');
+        }
+        dotsContainer.children().eq(0).addClass('active');
+      }
+
+      $('.arrow.next').click(function() {
+        changeImage(currentIndex + 1);
+      });
+
+      $('.arrow.prev').click(function() {
+        changeImage(currentIndex - 1);
+      });
+
+      dotsContainer.on('click', '.dot', function() {
+        var index = $(this).data('index');
+        changeImage(index);
+      });
+
+      createDots();
+    });
+  </script>
 </body>
 </html>
