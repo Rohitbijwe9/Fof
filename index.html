@@ -73,8 +73,8 @@
     }
 
     .carousel-images img {
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       flex-shrink: 0;
     }
@@ -214,6 +214,7 @@
       padding: 25px 10px;
     }
 
+    /* Media Query for Mobile */
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -222,8 +223,8 @@
       }
 
       .nav-links {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        gap: 20px;
         margin-top: 10px;
       }
 
@@ -238,6 +239,7 @@
 
       .carousel-images img {
         height: 80vh;
+        object-fit: cover;
       }
 
       .intro h2 {
@@ -251,6 +253,13 @@
       .whatsapp-btn {
         font-size: 1rem;
         padding: 12px 24px;
+      }
+    }
+
+    /* Fix for button alignment on mobile */
+    @media (max-width: 480px) {
+      .nav-links {
+        gap: 10px;
       }
     }
   </style>
@@ -316,65 +325,46 @@
   </footer>
 
   <script>
-  const slides = document.querySelectorAll('.carousel-images img');
-  const prev = document.querySelector('.arrow.prev');
-  const next = document.querySelector('.arrow.next');
-  const dotsContainer = document.querySelector('.dots-container');
-  let currentSlide = 0;
-  let autoSlide;
+    const slides = document.querySelectorAll('.carousel-images img');
+    const prev = document.querySelector('.arrow.prev');
+    const next = document.querySelector('.arrow.next');
+    const dotsContainer = document.querySelector('.dots-container');
+    let currentIndex = 0;
 
-  function createDots() {
+    function updateCarousel() {
+      const offset = -100 * currentIndex;
+      document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+
+      // Update dots
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[currentIndex].classList.add('active');
+    }
+
+    // Create dots dynamically based on the number of images
     slides.forEach((_, index) => {
       const dot = document.createElement('div');
       dot.classList.add('dot');
-      if (index === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => showSlide(index));
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
       dotsContainer.appendChild(dot);
     });
-  }
 
-  function showSlide(index) {
-    currentSlide = (index + slides.length) % slides.length;
-    document.querySelector('.carousel-images').style.transform = `translateX(-${currentSlide * 100}vw)`;
-    document.querySelectorAll('.dot').forEach((d, i) => {
-      d.classList.toggle('active', i === currentSlide);
+    // Handle prev and next arrows
+    prev.addEventListener('click', () => {
+      currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+      updateCarousel();
     });
-  }
 
-  function nextSlide() {
-    showSlide(currentSlide + 1);
-  }
+    next.addEventListener('click', () => {
+      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+      updateCarousel();
+    });
 
-  function prevSlide() {
-    showSlide(currentSlide - 1);
-  }
-
-  function startAutoSlide() {
-    autoSlide = setInterval(nextSlide, 5000);
-  }
-
-  function stopAutoSlide() {
-    clearInterval(autoSlide);
-  }
-
-  prev.addEventListener('click', () => {
-    stopAutoSlide();
-    prevSlide();
-    startAutoSlide();
-  });
-
-  next.addEventListener('click', () => {
-    stopAutoSlide();
-    nextSlide();
-    startAutoSlide();
-  });
-
-  // Initialize carousel
-  createDots();
-  showSlide(0);
-  startAutoSlide();
-</script>
-
+    updateCarousel(); // Initialize carousel
+  </script>
 
 </body>
 </html>
