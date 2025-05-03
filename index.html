@@ -1,134 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home - Fish O Fish</title>
+  <title>Fish O Fish</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
-    /* Keep your existing styling unchanged */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #f9fdfc;
-      color: #004d40;
-      line-height: 1.6;
+
+    html {
+      scroll-behavior: smooth;
     }
 
-    /* ===== NAVBAR STYLE ===== */
-    header {
-      background: #fff;
-      padding: 15px 5%;
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+      color: #004d40;
+      overflow-x: hidden;
+    }
+
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 10px 8%;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       position: sticky;
       top: 0;
       z-index: 1000;
+      flex-wrap: wrap;
     }
-    header img {
+
+    .logo-img {
       height: 100px;
       width: 100px;
       border-radius: 50%;
       object-fit: cover;
     }
-    header nav {
+
+    .nav-links {
       display: flex;
-      gap: 25px;
+      gap: 30px;
     }
-    header nav a {
+
+    .nav-links a {
       text-decoration: none;
       color: #004d40;
       font-weight: 600;
       transition: color 0.3s ease;
-      font-size: 1rem;
     }
-    header nav a:hover {
+
+    .nav-links a:hover {
       color: #00bfa5;
     }
 
-    /* ===== MAIN SECTION STYLE ===== */
-    .main-section {
-      padding: 60px 8%;
-      text-align: center;
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    .main-section h2 {
-      font-size: 2.2rem;
-      color: #00695c;
+    .carousel-images {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+      height: 100%;
+    }
+
+    .carousel-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+      padding: 10px;
+      user-select: none;
+      transition: background 0.3s;
+      z-index: 10;
+    }
+
+    .arrow:hover {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+    }
+
+    .arrow.prev {
+      left: 20px;
+    }
+
+    .arrow.next {
+      right: 20px;
+    }
+
+    .dots-container {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .dot.active {
+      background: #009688;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 80px 10%;
+      background: #00796b;
+      color: #ffffff;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
+
+    .intro h2 {
+      font-size: 2.5rem;
       margin-bottom: 20px;
-    }
-
-    .main-section p {
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-    }
-
-    .main-section .btn {
-      display: inline-block;
-      padding: 10px 22px;
       font-weight: 600;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+
+    .whatsapp-btn {
+      background-color: #25D366;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 5px;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: all 0.3s ease;
+      transition: background-color 0.3s;
+      display: inline-block;
     }
 
-    .btn-success {
-      background-color: #00796b;
-      color: white;
-      margin-right: 12px;
+    .whatsapp-btn:hover {
+      background-color: #128C7E;
     }
 
-    .btn-success:hover {
-      background-color: #004d40;
-    }
-
-    .btn-outline-success {
-      border: 2px solid #00796b;
-      color: #00796b;
-      background-color: transparent;
-    }
-
-    .btn-outline-success:hover {
-      background-color: #00796b;
-      color: white;
-    }
-
-    /* ===== FOOTER STYLE ===== */
-    footer {
-      background: #004d40;
-      color: white;
+    .offerings {
+      padding: 60px 8%;
+      background: #f0fdfb;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
       text-align: center;
-      padding: 20px 10px;
-      margin-top: 60px;
+    }
+
+    .offerings h2 {
+      grid-column: 1/-1;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #00796b;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card .icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #00796b;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      line-height: 1.6;
       font-size: 0.95rem;
     }
 
-    /* ===== RESPONSIVE STYLES ===== */
+    footer {
+      background: #004d40;
+      color: #fff;
+      text-align: center;
+      padding: 25px 10px;
+    }
+
+    /* Mobile responsiveness */
     @media (max-width: 768px) {
-      header {
-        flex-direction: row; /* Keep the header horizontal */
-        justify-content: space-between;
+      nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 5%;
       }
 
-      header nav {
-        display: flex;
-        justify-content: center;
+      .logo-img {
+        height: 70px;
+        width: 70px;
+      }
+
+      .nav-links {
+        flex-direction: row;
         gap: 20px;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        padding: 10px;
+      }
+
+      .whatsapp-btn {
+        font-size: 1rem;
+        padding: 12px 24px;
+      }
+
+      .carousel {
+        height: 60vh;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links {
+        gap: 10px;
+      }
+
+      .whatsapp-btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Updated Navigation Header for Home Page -->
+
   <nav>
     <a href="#carousel"><img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/logo.png" alt="Logo" class="logo-img"></a>
     <div class="nav-links">
@@ -138,7 +273,6 @@
     </div>
   </nav>
 
-  <!-- Carousel Section -->
   <section id="carousel" class="carousel">
     <div class="carousel-images">
       <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof5.jpg" alt="Fish">
@@ -154,14 +288,12 @@
     <div class="dots-container"></div>
   </section>
 
-  <!-- Intro Section -->
   <section class="intro">
     <h2>Your Trusted Aquarium Partner</h2>
     <p>Providing you with the best aquatic life, tanks, and accessories for your home. We are here to help with every aspect of aquarium care.</p>
     <a href="https://wa.me/919579991888" class="whatsapp-btn" target="_blank">Contact us on WhatsApp</a>
   </section>
 
-  <!-- Offerings Section -->
   <section class="offerings">
     <h2>Our Offerings</h2>
     <div class="card">
@@ -181,7 +313,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Fish O Fish. All rights reserved.</p>
   </footer>
@@ -202,7 +333,7 @@
 
     function changeSlide() {
       const offset = -currentIndex * 100;
-      document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+      document.querySelector('.carousel-images').style.transform = translateX(${offset}%);
 
       dotElements.forEach(dot => dot.classList.remove('active'));
       dotElements[currentIndex].classList.add('active');
@@ -225,8 +356,8 @@
       });
     });
 
+    // Initialize
     changeSlide();
   </script>
-
 </body>
 </html>
