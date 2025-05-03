@@ -59,6 +59,39 @@
       color: #00bfa5;
     }
 
+    /* Mobile Header Section */
+    .mobile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #00796b;
+      color: white;
+      border-radius: 10px;
+      margin-top: 50px;
+    }
+
+    .mobile-header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .mobile-header .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .mobile-header .nav-links a {
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .mobile-header .nav-links a:hover {
+      color: #00bfa5;
+    }
+
+    /* Carousel Styles */
     .carousel {
       position: relative;
       width: 100%;
@@ -250,24 +283,35 @@
       }
 
       .mobile-header {
-        display: block;
-        padding: 50px 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
         background-color: #00796b;
         color: white;
-        text-align: center;
-        margin-top: 50px;
+        text-align: left;
+        margin-top: 20px;
         border-radius: 10px;
       }
 
       .mobile-header h1 {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
         font-weight: 600;
-        margin-bottom: 20px;
       }
 
-      .mobile-header p {
+      .mobile-header .nav-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .mobile-header .nav-links a {
+        color: white;
         font-size: 1.1rem;
-        line-height: 1.6;
+        font-weight: 600;
+      }
+
+      .mobile-header .nav-links a:hover {
+        color: #00bfa5;
       }
     }
 
@@ -297,7 +341,11 @@
   <!-- Mobile Header Section -->
   <section class="mobile-header">
     <h1>Welcome to Fish O Fish</h1>
-    <p>We provide the best aquatic pets and accessories. Join us in creating the perfect aquarium for your home!</p>
+    <div class="nav-links">
+      <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
+      <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
+      <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
+    </div>
   </section>
 
   <section id="carousel" class="carousel">
@@ -308,54 +356,54 @@
       <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish2.jpg" alt="Fish">
       <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof4.jpg" alt="Dog Food & Accessories">
       <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish3.jpg" alt="Fish">
-      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish4.jpg" alt="Fish">
     </div>
-    <div class="arrow prev">&#10094;</div>
-    <div class="arrow next">&#10095;</div>
+    <span class="arrow prev">&#10094;</span>
+    <span class="arrow next">&#10095;</span>
     <div class="dots-container"></div>
   </section>
 
-  <section class="intro">
-    <h2>Your Trusted Aquarium Partner</h2>
-    <p>Providing you with the best aquatic life, tanks, and accessories for your home. We are here to help with every aspect of aquarium care.</p>
-    <a href="https://wa.me/919579991888" class="whatsapp-btn" target="_blank">Contact us on WhatsApp</a>
-  </section>
+  <div class="intro">
+    <h2>Welcome to Fish O Fish</h2>
+    <p>Your one-stop shop for all your aquarium needs. Dive into our wide range of products, from exotic fish to aquariums and accessories. Start shopping today!</p>
+    <a href="https://wa.me/918424781369" class="whatsapp-btn">Chat with us on WhatsApp</a>
+  </div>
 
-  <section class="offerings">
+  <div class="offerings">
     <h2>Our Offerings</h2>
     <div class="card">
-      <div class="icon">&#128039;</div>
-      <h3>Fish & Aquatic Pets</h3>
-      <p>Explore a variety of colorful and healthy fishes for your aquarium.</p>
+      <div class="icon">🐟</div>
+      <h3>Exotic Fish</h3>
+      <p>Discover a variety of exotic fish species for your aquarium.</p>
     </div>
     <div class="card">
-      <div class="icon">&#128717;</div>
-      <h3>Aquarium Tanks</h3>
-      <p>We offer tanks of various sizes and types to suit your needs.</p>
+      <div class="icon">🛁</div>
+      <h3>Aquarium Kits</h3>
+      <p>We offer premium aquarium kits for both beginners and experts.</p>
     </div>
     <div class="card">
-      <div class="icon">&#128050;</div>
-      <h3>Pet Care Products</h3>
-      <p>From food to accessories, we provide everything for your aquatic pet’s needs.</p>
+      <div class="icon">🐠</div>
+      <h3>Fish Food</h3>
+      <p>High-quality fish food to ensure the health and happiness of your fish.</p>
     </div>
-  </section>
+  </div>
 
   <footer>
     <p>&copy; 2025 Fish O Fish. All rights reserved.</p>
   </footer>
 
   <script>
+    // Carousel Script
+    const images = document.querySelectorAll('.carousel-images img');
     let currentIndex = 0;
-    const images = document.querySelectorAll(".carousel-images img");
-    const dots = document.querySelectorAll(".dot");
 
     function changeSlide(index) {
-      currentIndex = index;
-      const offset = -currentIndex * 100;
-      document.querySelector(".carousel-images").style.transform = `translateX(${offset}%)`;
-      dots.forEach(dot => dot.classList.remove("active"));
-      dots[currentIndex].classList.add("active");
+      const offset = -index * 100;
+      document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
     }
+
+    const dots = document.querySelectorAll('.dot');
 
     function nextSlide() {
       currentIndex = (currentIndex + 1) % images.length;
@@ -382,7 +430,3 @@
   </script>
 </body>
 </html>
-
-
-
-
