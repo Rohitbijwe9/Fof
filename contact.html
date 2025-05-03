@@ -32,8 +32,8 @@
     }
 
     .logo-img {
-      height: 120px;
-      width: 120px;
+      height: 100px;
+      width: 100px;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -53,38 +53,6 @@
 
     .nav-links a:hover {
       color: #00bfa5;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 30px;
-      height: 21px;
-      cursor: pointer;
-    }
-
-    .hamburger div {
-      background-color: #004d40;
-      height: 3px;
-      width: 100%;
-      border-radius: 5px;
-    }
-
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      width: 100%;
-      margin-top: 10px;
-    }
-
-    .mobile-nav a {
-      text-decoration: none;
-      color: #004d40;
-      font-weight: 600;
-      font-size: 1.2rem;
     }
 
     .contact-section {
@@ -231,21 +199,15 @@
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
+        align-items: center;
         gap: 10px;
       }
 
       .nav-links {
-        display: none;
         flex-direction: column;
         align-items: center;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .mobile-nav {
-        display: flex;
+        gap: 15px;
+        margin-top: 10px;
       }
 
       .contact-details {
@@ -254,6 +216,29 @@
 
       .contact-card {
         width: 100%;
+      }
+
+      /* Align header similar to About Us header on mobile */
+      .contact-section h2 {
+        font-size: 1.8rem;
+        text-align: center;
+      }
+
+      .contact-section p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+
+      .whatsapp-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
@@ -267,20 +252,7 @@
       <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
       <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
     </div>
-    <!-- Hamburger Menu -->
-    <div class="hamburger" onclick="toggleMobileNav()">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
   </nav>
-
-  <!-- Mobile Navigation -->
-  <div class="mobile-nav">
-    <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
-    <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
-    <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
-  </div>
 
   <section class="contact-section" id="contact">
     <h2>Contact Fish O Fish</h2>
@@ -297,54 +269,29 @@
       <!-- Branch 1 -->
       <div class="contact-card">
         <h4>Branch 1 - Amravati</h4>
-        <p>1/1, Ganesh Colony, Near Ravi Nagar,<br>Opp. HDFC ATM, Shilangan Road, Rajapeth - 444605</p>
-        <p><strong>Mobile:</strong> <a href="tel:9422917360">9422917360</a></p>
-        <div class="business-hours">
-          <h5>Business Hours:</h5>
-          <p>Mon–Sat: 10:00 AM - 10:00 PM<br>Sunday: Closed</p>
-        </div>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/fish_o_fish_aquarium_?igsh=ZHE4ZGtzZ3Y3Z2c2" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" /></a>
-          <a href="https://www.facebook.com/share/18vgwwyLnK/?mibextid=wwXIfr" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" /></a>
-          <a href="https://wa.me/919422917360" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" /></a>
-        </div>
-        <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.127209218551!2d77.7457662!3d20.9211335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6a4b2554193b7%3A0x1afe37912e739931!2sFish%20O%20Fish!5e0!3m2!1sen!2sin!4v1713008007958!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
+        <p>Location: Street 1, Amravati, Maharashtra</p>
+        <p>Phone: +91 123 456 7890</p>
+        <p>Email: amravati@fishofish.com</p>
       </div>
-
       <!-- Branch 2 -->
       <div class="contact-card">
-        <h4>Branch 2 - Chikalthana</h4>
-        <p>1/1, Shilangan Road, Near Ganesh Mandir<br>Chikalthana, Shendra - 444609</p>
-        <p><strong>Mobile:</strong> <a href="tel:9422917360">9422917360</a></p>
-        <div class="business-hours">
-          <h5>Business Hours:</h5>
-          <p>Mon–Sat: 10:00 AM - 10:00 PM<br>Sunday: Closed</p>
-        </div>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/fish_o_fish_aquarium_?igsh=ZHE4ZGtzZ3Y3Z2c2" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" /></a>
-          <a href="https://www.facebook.com/share/18vgwwyLnK/?mibextid=wwXIfr" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" /></a>
-          <a href="https://wa.me/919422917360" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" /></a>
-        </div>
-        <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.127209218551!2d77.7457662!3d20.9211335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6a4b2554193b7%3A0x1afe37912e739931!2sFish%20O%20Fish!5e0!3m2!1sen!2sin!4v1713008007958!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
+        <h4>Branch 2 - Mumbai</h4>
+        <p>Location: Street 2, Mumbai, Maharashtra</p>
+        <p>Phone: +91 987 654 3210</p>
+        <p>Email: mumbai@fishofish.com</p>
       </div>
     </div>
 
+    <div class="map-container">
+      <iframe src="https://maps.google.com/maps?q=Fish%20O%20Fish%20Amravati&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2023 Fish O Fish Aquarium. All rights reserved.</p>
+    <p>© 2025 All Rights Reserved By Fish O Fish | Developed and Managed by Rohit Bijwe</p>
   </footer>
 
-  <script>
-    function toggleMobileNav() {
-      const mobileNav = document.querySelector('.mobile-nav');
-      mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
-    }
-  </script>
 </body>
 </html>
+
 
