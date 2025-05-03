@@ -248,6 +248,25 @@
       .carousel {
         height: 60vh;
       }
+
+      .mobile-header {
+        display: block;
+        padding: 40px 20px;
+        background-color: #00796b;
+        text-align: center;
+      }
+
+      .mobile-header h1 {
+        font-size: 2rem;
+        color: white;
+        margin-bottom: 10px;
+      }
+
+      .mobile-header p {
+        color: white;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
     }
 
     @media (max-width: 480px) {
@@ -272,6 +291,12 @@
       <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
     </div>
   </nav>
+
+  <!-- Mobile Header Section -->
+  <section class="mobile-header">
+    <h1>Welcome to Fish O Fish</h1>
+    <p>Your trusted aquarium partner, bringing you the best aquatic pets and accessories.</p>
+  </section>
 
   <section id="carousel" class="carousel">
     <div class="carousel-images">
@@ -333,7 +358,7 @@
 
     function changeSlide() {
       const offset = -currentIndex * 100;
-      document.querySelector('.carousel-images').style.transform = translateX(${offset}%);
+      document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
 
       dotElements.forEach(dot => dot.classList.remove('active'));
       dotElements[currentIndex].classList.add('active');
@@ -361,3 +386,4 @@
   </script>
 </body>
 </html>
+
