@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us - Fish O Fish</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -13,279 +12,191 @@
     }
 
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #f9fdfc;
-      color: #004d40;
+      font-family: 'Arial', sans-serif;
       line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #003c3c;
+      padding: 20px 0;
+      color: white;
+    }
+
+    .logo {
+      float: left;
+      font-size: 24px;
     }
 
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 10%;
-      background: #ffffff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo-img {
-      height: 120px;
-      width: 120px;
-      border-radius: 50%;
-      object-fit: cover;
+      float: right;
     }
 
     .nav-links {
+      list-style: none;
       display: flex;
-      gap: 25px;
+      gap: 20px;
     }
 
     .nav-links a {
+      color: white;
       text-decoration: none;
-      color: #004d40;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      font-size: 1rem;
+      font-weight: bold;
+      transition: 0.3s;
     }
 
-    .nav-links a:hover {
-      color: #00bfa5;
+    .nav-links a:hover,
+    .nav-links .active {
+      color: #00c2c2;
     }
 
-    .contact-section {
-      padding: 60px 8%;
+    header::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    /* Contact Section */
+    .contact {
+      background-color: #fff;
+      padding: 40px 0;
+    }
+
+    .contact h2 {
       text-align: center;
-    }
-
-    .contact-section h2 {
-      font-size: 2.2rem;
-      color: #00695c;
-      margin-bottom: 20px;
-    }
-
-    .contact-section p {
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-    }
-
-    .whatsapp-buttons {
-      margin-bottom: 40px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 22px;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .btn-success {
-      background-color: #00796b;
-      color: white;
-      margin-right: 12px;
-    }
-
-    .btn-success:hover {
-      background-color: #004d40;
-    }
-
-    .btn-outline-success {
-      border: 2px solid #00796b;
-      color: #00796b;
-      background-color: transparent;
-    }
-
-    .btn-outline-success:hover {
-      background-color: #00796b;
-      color: white;
+      margin-bottom: 30px;
+      color: #003c3c;
     }
 
     .contact-details {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
       gap: 30px;
-      margin-top: 40px;
+      justify-content: space-between;
+      align-items: flex-start;
     }
 
-    .contact-card {
-      background-color: #ffffff;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-      padding: 25px;
-      flex: 1 1 48%;
-      min-width: 280px;
-      transition: transform 0.3s ease;
+    .info {
+      flex: 1 1 300px;
+      font-size: 18px;
     }
 
-    .contact-card:hover {
-      transform: translateY(-5px);
+    .info p {
+      margin-bottom: 15px;
     }
 
-    .contact-card h4 {
-      color: #00796b;
-      margin-bottom: 10px;
-      font-size: 1.3rem;
-    }
-
-    .contact-card p {
-      color: #333;
-      font-size: 1rem;
-      margin-bottom: 8px;
-    }
-
-    .contact-card a {
-      color: #00796b;
-      text-decoration: none;
-    }
-
-    .contact-card a:hover {
-      text-decoration: underline;
-    }
-
-    .business-hours h5 {
-      font-size: 1.05rem;
-      color: #004d40;
-      margin-top: 15px;
-      margin-bottom: 5px;
+    .social-icons img {
+      width: 30px;
+      height: 30px;
+      margin-top: 10px;
     }
 
     .map-container {
-      margin-top: 20px;
-      height: 250px;
-      border-radius: 12px;
-      overflow: hidden;
+      flex: 1 1 300px;
+      height: 300px;
     }
 
-    iframe {
+    .map-container iframe {
       width: 100%;
       height: 100%;
       border: 0;
     }
 
-    .social-icons {
-      margin-top: 12px;
-    }
-
-    .social-icons a {
-      margin-right: 10px;
-    }
-
-    .social-icons img {
-      width: 28px;
-      height: 28px;
-      transition: transform 0.3s ease;
-    }
-
-    .social-icons img:hover {
-      transform: scale(1.1);
-    }
-
+    /* Footer */
     footer {
-      background: #004d40;
+      background-color: #003c3c;
       color: white;
       text-align: center;
-      padding: 20px 10px;
-      margin-top: 60px;
-      font-size: 0.95rem;
+      padding: 15px 0;
+      margin-top: 30px;
     }
 
+    /* Responsive Design */
     @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 10px;
-      }
-
       .nav-links {
         flex-direction: column;
         align-items: center;
       }
 
-      .contact-details {
-        flex-direction: column;
+      nav {
+        float: none;
+        text-align: center;
+        margin-top: 15px;
       }
 
-      .contact-card {
-        width: 100%;
+      .contact-details {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo {
+        float: none;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      header::after {
+        content: "";
+        display: block;
+        clear: both;
       }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#carousel"><img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/logo.png" alt="Logo" class="logo-img"></a>
-    <div class="nav-links">
-      <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
-      <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
-      <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
+  <header>
+    <div class="container">
+      <h1 class="logo">Fish O Fish</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <section class="contact-section" id="contact">
-    <h2>Contact Fish O Fish</h2>
-    <p>We provide services for <strong>booking your slot</strong> or <strong>inquiry</strong>. Feel free to reach out!</p>
-
-    <div class="whatsapp-buttons">
-      <a href="https://wa.me/919579991888?text=Hi%2C%20I%20want%20to%20book%20a%20slot" target="_blank" class="btn btn-success">Book Slot</a>
-      <a href="https://wa.me/919579991888?text=Hi%2C%20I%20have%20an%20inquiry%20about%20your%20services" target="_blank" class="btn btn-outline-success">Send Inquiry</a>
-    </div>
-
-    <h2>Our Branches</h2>
-
-    <div class="contact-details">
-      <!-- Branch 1 -->
-      <div class="contact-card">
-        <h4>Branch 1 - Amravati</h4>
-        <p>1/1, Ganesh Colony, Near Ravi Nagar,<br>Opp. HDFC ATM, Shilangan Road, Rajapeth - 444605</p>
-        <p><strong>Mobile:</strong> <a href="tel:9422917360">9422917360</a></p>
-        <div class="business-hours">
-          <h5>Business Hours:</h5>
-          <p>Mon–Sat: 10:00 AM - 10:00 PM<br>Sunday: Closed</p>
-        </div>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/fish_o_fish_aquarium_?igsh=ZHE4ZGtzZ3Y3Z2c2" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" /></a>
-          <a href="https://www.facebook.com/share/18vgwwyLnK/?mibextid=wwXIfr" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" /></a>
-          <a href="https://wa.me/919422917360" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" /></a>
+  <section class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div class="contact-details">
+        <div class="info">
+          <p><strong>Phone:</strong> +91 9326835475</p>
+          <p><strong>Email:</strong> info@fishofish.in</p>
+          <p><strong>Address:</strong> Fish O Fish, Karanja, Maharashtra 444105</p>
+          <div class="social-icons">
+            <a href="https://wa.me/919326835475" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+            </a>
+          </div>
         </div>
         <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.127209218551!2d77.7457662!3d20.9211335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6a4b2554193b7%3A0x1afe37912e739931!2sFish%20O%20Fish!5e0!3m2!1sen!2sin!4v1713778000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </div>
-
-      <!-- Branch 2 -->
-      <div class="contact-card">
-        <h4>Branch 2 - Karanja Lad</h4>
-        <p>Opposite Harish Bichayat, Tilak Chauk,<br>Karanja Lad - 444105</p>
-        <p><strong>Mobile:</strong> <a href="tel:9579991888">9579991888</a></p>
-        <div class="business-hours">
-          <h5>Business Hours:</h5>
-          <p>Mon–Sat: 10:00 AM - 10:00 PM<br>Sunday: Closed</p>
-        </div>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/fish_o_fish_aquarium_?igsh=ZHE4ZGtzZ3Y3Z2c2" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" /></a>
-          <a href="https://www.facebook.com/share/18vgwwyLnK/?mibextid=wwXIfr" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" /></a>
-          <a href="https://wa.me/919579991888" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" /></a>
-        </div>
-        <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.358048853472!2d77.4881653!3d20.910838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6a5be2b3a183d%3A0x98a14591dcb2b5b!2sFish%20O%20Fish%20-%20Aquarium%20Store!5e0!3m2!1sen!2sin!4v1713778072893!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3747.7597220770895!2d77.4883507!3d20.4804205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6dc245d9f7dbf%3A0x258137d3b3d8a383!2sFish%20O%20Fish%20Karanja!5e0!3m2!1sen!2sin!4v1713778110000!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 Fish O Fish | All Rights Reserved</p>
+    &copy; 2024 Fish O Fish. All rights reserved.
   </footer>
 
 </body>
 </html>
+
 
 
 
