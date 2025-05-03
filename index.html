@@ -23,114 +23,147 @@
       overflow-x: hidden;
     }
 
-    /* ===== HEADER STYLE ===== */
     header {
-  background: #fff;
-  padding: 15px 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  flex-wrap: wrap;
-}
-
-header img {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-header nav {
-  display: flex;
-  gap: 25px;
-}
-
-header nav a {
-  text-decoration: none;
-  color: #004d40;
-  font-weight: 600;
-  transition: color 0.3s ease;
-  font-size: 1rem;
-}
-
-header nav a:hover {
-  color: #00bfa5;
-}
-
-/* ===== RESPONSIVE STYLES ===== */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column; /* Stack items on top of each other */
-    align-items: center; /* Center items horizontally */
-  }
-
-  header nav {
-    width: 100%;
-    justify-content: center; /* Center nav links */
-    gap: 15px;
-    margin-top: 10px;
-  }
-
-  header nav a {
-    font-size: 1.1rem; /* Adjust font size for mobile */
-  }
-
-  .hero-section {
-    padding: 80px 10%;
-  }
-
-  .cta-button {
-    width: 100%;
-    padding: 12px 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .cta-button {
-    font-size: 1rem; /* Adjust button size for smaller screens */
-  }
-
-  header nav a {
-    font-size: 1rem;
-    padding: 5px;
-  }
-}
-
-    /* ===== MAIN CONTENT STYLE ===== */
-    .hero-section {
-      text-align: center;
-      padding: 100px 15%;
+      background: #fff;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    .hero-section h1 {
-      font-size: 3rem;
-      color: #00695c;
-      margin-bottom: 20px;
+    header img {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
-    .hero-section p {
-      font-size: 1.3rem;
-      color: #555;
+    header nav {
+      display: flex;
+      gap: 25px;
     }
 
-    .cta-button {
-      margin-top: 30px;
-      padding: 12px 30px;
-      background-color: #00bfa5;
-      color: white;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 8px;
+    header nav a {
+      text-decoration: none;
+      color: #004d40;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      font-size: 1rem;
+    }
+
+    header nav a:hover {
+      color: #00bfa5;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 8%;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .logo-img {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #004d40;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00bfa5;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+      height: 100%;
+    }
+
+    .carousel-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: rgba(255, 255, 255, 0.8);
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      padding: 10px;
+      user-select: none;
+      transition: background 0.3s;
+      z-index: 10;
     }
 
-    .cta-button:hover {
-      background-color: #00796b;
+    .arrow:hover {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+    }
+
+    .arrow.prev {
+      left: 20px;
+    }
+
+    .arrow.next {
+      right: 20px;
+    }
+
+    .dots-container {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .dot.active {
+      background: #009688;
     }
 
     .intro {
@@ -154,36 +187,104 @@ header nav a:hover {
       line-height: 1.8;
     }
 
-    /* ===== FOOTER STYLE ===== */
-    footer {
-      background: #004d40;
+    .whatsapp-btn {
+      background-color: #25D366;
       color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      display: inline-block;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #128C7E;
+    }
+
+    .offerings {
+      padding: 60px 8%;
+      background: #f0fdfb;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
       text-align: center;
-      padding: 20px 10px;
-      margin-top: 60px;
+    }
+
+    .offerings h2 {
+      grid-column: 1/-1;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #00796b;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card .icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #00796b;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      line-height: 1.6;
       font-size: 0.95rem;
     }
 
-    /* ===== RESPONSIVE STYLES ===== */
+    footer {
+      background: #004d40;
+      color: #fff;
+      text-align: center;
+      padding: 25px 10px;
+    }
+
+    /* Mobile responsiveness */
     @media (max-width: 768px) {
-      header {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 5%;
+      }
+
+      .logo-img {
+        height: 70px;
+        width: 70px;
+      }
+
+      .nav-links {
         flex-direction: row;
-        justify-content: space-between;
-      }
-
-      header nav {
-        display: flex;
-        justify-content: center;
         gap: 20px;
-      }
-
-      .hero-section {
-        padding: 80px 10%;
-      }
-
-      .cta-button {
+        margin-top: 10px;
+        justify-content: center;
         width: 100%;
-        padding: 12px 20px;
+        text-align: center;
+      }
+
+      .nav-links a {
+        padding: 10px;
+      }
+
+      .whatsapp-btn {
+        font-size: 1rem;
+        padding: 12px 24px;
+      }
+
+      .carousel {
+        height: 60vh;
       }
     }
 
@@ -201,35 +302,104 @@ header nav a:hover {
 </head>
 <body>
 
-  <!-- Header Section (Navigation) -->
-  <header>
-    <a href="index.html">
-      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/logo.png" alt="Logo" class="logo-img">
-    </a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  <!-- Navigation Bar -->
+  <nav>
+    <img src="logo.png" alt="Fish O Fish" class="logo-img">
+    <div class="nav-links">
+      <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
+      <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
+      <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
+    </div>
+  </nav>
 
-  <!-- Hero Section (Main Content of Home Page) -->
-  <section class="hero-section">
-    <h1>Welcome to Fish O Fish</h1>
-    <p>Your one-stop shop for everything aquatic! We provide top-quality fish, tanks, and accessories for your aquarium.</p>
-    <button class="cta-button">Browse Our Products</button>
+  <section id="carousel" class="carousel">
+    <div class="carousel-images">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof5.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish1.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof1.jpg" alt="Fish Tank">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish2.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof4.jpg" alt="Dog Food & Accessories">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish3.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish4.jpg" alt="Fish">
+    </div>
+    <div class="arrow prev">&#10094;</div>
+    <div class="arrow next">&#10095;</div>
+    <div class="dots-container"></div>
   </section>
 
-  <!-- Intro Section -->
   <section class="intro">
     <h2>Your Trusted Aquarium Partner</h2>
-    <p>Providing you with the best aquatic life, tanks, and accessories for your home. We are here to help with every need for your aquarium setup.</p>
+    <p>Providing you with the best aquatic life, tanks, and accessories for your home. We are here to help with every aspect of aquarium care.</p>
+    <a href="https://wa.me/919579991888" class="whatsapp-btn" target="_blank">Connect with Us on WhatsApp</a>
   </section>
 
-  <!-- Footer Section -->
+  <section class="offerings">
+    <h2>Our Offerings</h2>
+    <div class="card">
+      <div class="icon">🐠</div>
+      <h3>Freshwater Fish</h3>
+      <p>Explore our collection of vibrant and healthy freshwater fish for your aquarium.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🐟</div>
+      <h3>Fish Tanks</h3>
+      <p>Wide range of fish tanks to suit all your needs, big or small.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🐡</div>
+      <h3>Fish Food & Accessories</h3>
+      <p>We provide a variety of fish food and aquarium accessories to keep your fish happy and healthy.</p>
+    </div>
+  </section>
+
   <footer>
-    <p>© 2025 All Rights Reserved By Fish O Fish | Developed and Managed by Rohit Bijwe</p>
+    <p>&copy; 2025 Fish O Fish. All rights reserved.</p>
   </footer>
 
+  <script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel-images img');
+    const dots = document.querySelectorAll('.dot');
+
+    function changeSlide() {
+      if (currentIndex < 0) currentIndex = images.length - 1;
+      if (currentIndex >= images.length) currentIndex = 0;
+      const offset = -100 * currentIndex;
+      document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[currentIndex].classList.add('active');
+    }
+
+    document.querySelector('.arrow.prev').addEventListener('click', () => {
+      currentIndex--;
+      changeSlide();
+    });
+
+    document.querySelector('.arrow.next').addEventListener('click', () => {
+      currentIndex++;
+      changeSlide();
+    });
+
+    function createDots() {
+      const container = document.querySelector('.dots-container');
+      images.forEach((image, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        dot.addEventListener('click', () => {
+          currentIndex = index;
+          changeSlide();
+        });
+        container.appendChild(dot);
+      });
+      dots[0].classList.add('active');
+    }
+
+    createDots();
+    setInterval(() => {
+      currentIndex++;
+      changeSlide();
+    }, 3000);
+  </script>
 </body>
 </html>
