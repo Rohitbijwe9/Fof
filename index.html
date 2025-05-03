@@ -355,78 +355,46 @@
       <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof1.jpg" alt="Fish Tank">
       <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish2.jpg" alt="Fish">
       <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof4.jpg" alt="Dog Food & Accessories">
-      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish3.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof2.jpg" alt="Fish Food">
     </div>
     <span class="arrow prev">&#10094;</span>
     <span class="arrow next">&#10095;</span>
     <div class="dots-container"></div>
   </section>
 
-  <div class="intro">
+  <section class="intro">
     <h2>Welcome to Fish O Fish</h2>
-    <p>Your one-stop shop for all your aquarium needs. Dive into our wide range of products, from exotic fish to aquariums and accessories. Start shopping today!</p>
-    <a href="https://wa.me/918424781369" class="whatsapp-btn">Chat with us on WhatsApp</a>
-  </div>
+    <p>Your one-stop shop for fish and aquarium supplies. We offer everything you need to care for your aquatic pets and aquarium setup.</p>
+    <a href="https://wa.me/918888118179?text=Hi%2C%20I%20need%20some%20help%20with%20purchasing%20fish%20and%20aquarium%20supplies." class="whatsapp-btn" target="_blank">WhatsApp Us</a>
+  </section>
 
-  <div class="offerings">
+  <section class="offerings">
     <h2>Our Offerings</h2>
     <div class="card">
       <div class="icon">🐟</div>
-      <h3>Exotic Fish</h3>
-      <p>Discover a variety of exotic fish species for your aquarium.</p>
+      <h3>Fishes</h3>
+      <p>Choose from a variety of fresh and saltwater fishes for your aquarium.</p>
     </div>
     <div class="card">
-      <div class="icon">🛁</div>
-      <h3>Aquarium Kits</h3>
-      <p>We offer premium aquarium kits for both beginners and experts.</p>
+      <div class="icon">🌊</div>
+      <h3>Aquariums</h3>
+      <p>Find the perfect aquarium for your fish, from basic setups to advanced tanks.</p>
     </div>
     <div class="card">
-      <div class="icon">🐠</div>
-      <h3>Fish Food</h3>
-      <p>High-quality fish food to ensure the health and happiness of your fish.</p>
+      <div class="icon">🍽️</div>
+      <h3>Food</h3>
+      <p>Quality food for your aquatic pets, ensuring they stay healthy and happy.</p>
     </div>
-  </div>
+    <div class="card">
+      <div class="icon">🧹</div>
+      <h3>Accessories</h3>
+      <p>Everything you need to maintain your aquarium, from filters to decor.</p>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Fish O Fish. All rights reserved.</p>
+    <p>&copy; 2025 Fish O Fish. All Rights Reserved.</p>
   </footer>
 
-  <script>
-    // Carousel Script
-    const images = document.querySelectorAll('.carousel-images img');
-    let currentIndex = 0;
-
-    function changeSlide(index) {
-      const offset = -index * 100;
-      document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[index].classList.add('active');
-    }
-
-    const dots = document.querySelectorAll('.dot');
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % images.length;
-      changeSlide(currentIndex);
-    }
-
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      changeSlide(currentIndex);
-    }
-
-    document.querySelector(".next").addEventListener("click", nextSlide);
-    document.querySelector(".prev").addEventListener("click", prevSlide);
-
-    // Add dots to carousel
-    images.forEach(() => {
-      const dot = document.createElement("div");
-      dot.classList.add("dot");
-      dot.addEventListener("click", () => changeSlide([...dots].indexOf(dot)));
-      document.querySelector(".dots-container").appendChild(dot);
-    });
-
-    changeSlide(currentIndex);
-  </script>
 </body>
 </html>
