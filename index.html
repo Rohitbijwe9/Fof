@@ -23,24 +23,21 @@
       line-height: 1.6;
     }
 
-    /* ===== HEADER STYLE ===== */
+    /* ===== HEADER ===== */
     header {
       background: #fff;
       padding: 15px 5%;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
+      flex-wrap: wrap;
     }
 
-    .logo-container {
-      justify-self: start;
-    }
-
-    .logo-container img {
+    header img {
       height: 100px;
       width: 100px;
       border-radius: 50%;
@@ -48,7 +45,6 @@
     }
 
     nav {
-      justify-self: end;
       display: flex;
       gap: 25px;
     }
@@ -75,66 +71,13 @@
       cursor: pointer;
       font-size: 1rem;
       transition: background-color 0.3s;
-      justify-self: center;
     }
 
     .header-button:hover {
       background-color: #00796b;
     }
 
-    /* ===== RESPONSIVE STYLES ===== */
-    @media (max-width: 768px) {
-      header {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-        gap: 10px;
-        padding: 10px 5%;
-      }
-
-      .logo-container {
-        grid-column: 1 / -1;
-        justify-self: center;
-      }
-
-      nav {
-        grid-column: 1 / -1;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-
-      .header-button {
-        grid-column: 1 / -1;
-        justify-self: center;
-      }
-
-      .logo-container img {
-        height: 80px;
-        width: 80px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .logo-container img {
-        height: 70px;
-        width: 70px;
-      }
-
-      nav {
-        gap: 10px;
-      }
-
-      nav a {
-        font-size: 1rem;
-        padding: 5px 10px;
-      }
-
-      .header-button {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-      }
-    }
-
+    /* ===== CAROUSEL ===== */
     .carousel {
       position: relative;
       width: 100%;
@@ -204,6 +147,7 @@
       background: #009688;
     }
 
+    /* ===== INTRO SECTION ===== */
     .intro {
       text-align: center;
       padding: 80px 10%;
@@ -240,6 +184,7 @@
       background-color: #128C7E;
     }
 
+    /* ===== OFFERINGS SECTION ===== */
     .offerings {
       padding: 60px 8%;
       background: #f0fdfb;
@@ -250,7 +195,7 @@
     }
 
     .offerings h2 {
-      grid-column: 1/-1;
+      grid-column: 1 / -1;
       font-size: 2rem;
       margin-bottom: 40px;
       color: #00796b;
@@ -283,26 +228,73 @@
       font-size: 0.95rem;
     }
 
+    /* ===== FOOTER ===== */
     footer {
       background: #004d40;
       color: #fff;
       text-align: center;
       padding: 25px 10px;
     }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+      }
+
+      header img {
+        height: 80px;
+        width: 80px;
+      }
+
+      .cta-button {
+        width: 100%;
+        padding: 12px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 10px 5%;
+      }
+
+      header img {
+        height: 70px;
+        width: 70px;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      .cta-button {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav>
-    <img src="logo.png" alt="Fish O Fish" class="logo-img">
-    <div class="nav-links">
+  <header>
+    <div class="logo-container">
+      <img src="your-logo.png" alt="Fish O Fish Logo">
+    </div>
+    <nav>
       <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
       <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
       <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
 
-    </div>
-  </nav>
+    </nav>
+    <button class="header-button">Order Now</button>
+  </header>
 
   <section id="carousel" class="carousel">
     <div class="carousel-images">
