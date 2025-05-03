@@ -251,20 +251,22 @@
 
       .mobile-header {
         display: block;
-        padding: 40px 20px;
+        padding: 50px 20px;
         background-color: #00796b;
+        color: white;
         text-align: center;
+        margin-top: 50px;
+        border-radius: 10px;
       }
 
       .mobile-header h1 {
-        font-size: 2rem;
-        color: white;
-        margin-bottom: 10px;
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 20px;
       }
 
       .mobile-header p {
-        color: white;
-        font-size: 1rem;
+        font-size: 1.1rem;
         line-height: 1.6;
       }
     }
@@ -295,7 +297,7 @@
   <!-- Mobile Header Section -->
   <section class="mobile-header">
     <h1>Welcome to Fish O Fish</h1>
-    <p>Your trusted aquarium partner, bringing you the best aquatic pets and accessories.</p>
+    <p>We provide the best aquatic pets and accessories. Join us in creating the perfect aquarium for your home!</p>
   </section>
 
   <section id="carousel" class="carousel">
@@ -334,7 +336,7 @@
     <div class="card">
       <div class="icon">&#128050;</div>
       <h3>Pet Care Products</h3>
-      <p>From food to accessories, we provide all you need for your pet’s well-being.</p>
+      <p>From food to accessories, we provide everything for your aquatic pet’s needs.</p>
     </div>
   </section>
 
@@ -344,46 +346,36 @@
 
   <script>
     let currentIndex = 0;
-    const images = document.querySelectorAll('.carousel-images img');
-    const dots = document.querySelector('.dots-container');
+    const images = document.querySelectorAll(".carousel-images img");
+    const dots = document.querySelectorAll(".dot");
+    const prevBtn = document.querySelector(".arrow.prev");
+    const nextBtn = document.querySelector(".arrow.next");
 
-    // Create dots dynamically
-    images.forEach(() => {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      dots.appendChild(dot);
-    });
-
-    const dotElements = document.querySelectorAll('.dot');
-
-    function changeSlide() {
-      const offset = -currentIndex * 100;
-      document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
-
-      dotElements.forEach(dot => dot.classList.remove('active'));
-      dotElements[currentIndex].classList.add('active');
+    function showSlide(index) {
+      const totalImages = images.length;
+      currentIndex = (index + totalImages) % totalImages;
+      document.querySelector(".carousel-images").style.transform = `translateX(-${100 * currentIndex}%)`;
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[currentIndex]?.classList.add("active");
     }
 
-    document.querySelector('.next').addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % images.length;
-      changeSlide();
-    });
-
-    document.querySelector('.prev').addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      changeSlide();
-    });
-
-    dotElements.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        currentIndex = index;
-        changeSlide();
+    function createDots() {
+      const dotsContainer = document.querySelector(".dots-container");
+      images.forEach((_, index) => {
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+        dot.addEventListener("click", () => showSlide(index));
+        dotsContainer.appendChild(dot);
       });
-    });
+      dots[0].classList.add("active");
+    }
 
-    // Initialize
-    changeSlide();
+    prevBtn.addEventListener("click", () => showSlide(currentIndex - 1));
+    nextBtn.addEventListener("click", () => showSlide(currentIndex + 1));
+
+    createDots();
   </script>
 </body>
 </html>
+
 
