@@ -82,6 +82,8 @@
     .nav-links {
       display: flex;
       gap: 30px;
+      justify-content: flex-end;
+      width: 100%;
     }
 
     .nav-links a {
@@ -320,57 +322,43 @@
       <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish3.jpg" alt="Fish">
       <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish4.jpg" alt="Fish">
     </div>
-     <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
-      <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
-      <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
-
+    <div class="arrow prev">&#10094;</div>
+    <div class="arrow next">&#10095;</div>
+    <div class="dots-container"></div>
   </section>
 
   <section class="intro">
     <h2>Your Trusted Aquarium Partner</h2>
     <p>Providing you with the best aquatic life, tanks, and accessories for your home. We are here to help with every aspect of aquarium care.</p>
-    <a href="https://wa.me/919579991888" class="whatsapp-btn" target="_blank">Contact us on WhatsApp</a>
+    <a href="https://wa.me/919579991888" class="whatsapp-btn" target="_blank">Connect with Us on WhatsApp</a>
   </section>
 
   <section class="offerings">
     <h2>Our Offerings</h2>
     <div class="card">
+      <div class="icon">🐠</div>
+      <h3>Freshwater Fish</h3>
+      <p>Explore our collection of vibrant and healthy freshwater fish for your aquarium.</p>
+    </div>
+    <div class="card">
       <div class="icon">🐟</div>
-      <h3>Fish & Aquatic Life</h3>
-      <p>We offer a variety of freshwater and saltwater fish for your aquarium.</p>
+      <h3>Fish Tanks</h3>
+      <p>Wide range of fish tanks to suit all your needs, big or small.</p>
     </div>
     <div class="card">
-      <div class="icon">🦠</div>
-      <h3>Aquarium Accessories</h3>
-      <p>Everything you need to keep your aquarium healthy, including tanks, filters, and lights.</p>
-    </div>
-    <div class="card">
-      <div class="icon">🧑‍🔬</div>
-      <h3>Consultation & Support</h3>
-      <p>Get expert advice on aquarium setup, maintenance, and fish care.</p>
+      <div class="icon">🐡</div>
+      <h3>Fish Food & Accessories</h3>
+      <p>We provide a variety of fish food and aquarium accessories to keep your fish happy and healthy.</p>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Fish O Fish | All Rights Reserved</p>
+    <p>&copy; 2025 Fish O Fish. All rights reserved.</p>
   </footer>
 
   <script>
     let currentIndex = 0;
     const images = document.querySelectorAll('.carousel-images img');
-    const dotsContainer = document.querySelector('.dots-container');
-
-    // Create dots
-    images.forEach((_, index) => {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      dot.addEventListener('click', () => {
-        currentIndex = index;
-        changeSlide();
-      });
-      dotsContainer.appendChild(dot);
-    });
-
     const dots = document.querySelectorAll('.dot');
 
     function changeSlide() {
@@ -404,6 +392,5 @@
 
     changeSlide();
   </script>
-
 </body>
 </html>
