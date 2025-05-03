@@ -125,24 +125,19 @@
 
     @media (max-width: 768px) {
       nav {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .logo-img {
-        height: 80px;
-        width: 80px;
+        flex-direction: row;
+        justify-content: space-between;
       }
 
       .nav-links {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+        margin-left: auto;
       }
 
-      .nav-links a {
-        margin: 10px 0;
-        font-size: 1.1rem;
+      .logo-img {
+        order: -1; /* Move logo to left on mobile */
       }
 
       .services {
@@ -153,11 +148,6 @@
       .service-card {
         width: 80%;
         margin-bottom: 20px;
-      }
-
-      footer {
-        padding: 15px 10px;
-        font-size: 0.9rem;
       }
     }
   </style>
