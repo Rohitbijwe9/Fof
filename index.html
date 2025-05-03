@@ -70,7 +70,6 @@
       display: flex;
       transition: transform 0.8s ease-in-out;
       height: 100%;
-      width: 100%;
     }
 
     .carousel-images img {
@@ -215,7 +214,6 @@
       padding: 25px 10px;
     }
 
-    /* Mobile Responsiveness */
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -240,33 +238,14 @@
         padding: 12px 24px;
       }
 
-      .intro {
-        padding: 40px 5%;
-      }
-
-      .offerings {
-        padding: 40px 5%;
+      nav a {
+        text-align: center;
       }
     }
 
     @media (max-width: 480px) {
       .nav-links {
         gap: 10px;
-      }
-
-      .carousel-images {
-        display: block;
-      }
-
-      .carousel-images img {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-
-      .whatsapp-btn {
-        font-size: 0.9rem;
-        padding: 10px 20px;
       }
     }
   </style>
@@ -297,6 +276,7 @@
     <div class="dots-container"></div>
   </section>
 
+ 
   <section class="intro">
     <h2>Your Trusted Aquarium Partner</h2>
     <p>Providing you with the best aquatic life, tanks, and accessories for your home. We are here to help with every aspect of aquarium care.</p>
@@ -372,5 +352,6 @@
       }, 5000);
     });
   </script>
-</body>
+
+</body>  
 </html>
