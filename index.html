@@ -1,269 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+<head><!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fish O Fish</title>
+  <title>Home - Fish O Fish</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
+    /* Keep your existing styling unchanged */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+      background-color: #f9fdfc;
       color: #004d40;
-      overflow-x: hidden;
+      line-height: 1.6;
     }
 
-    nav {
+    /* ===== NAVBAR STYLE ===== */
+    header {
+      background: #fff;
+      padding: 15px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 8%;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
-      flex-wrap: wrap;
     }
-
-    .logo-img {
+    header img {
       height: 100px;
       width: 100px;
       border-radius: 50%;
       object-fit: cover;
     }
-
-    .nav-links {
+    header nav {
       display: flex;
-      gap: 30px;
+      gap: 25px;
     }
-
-    .nav-links a {
+    header nav a {
       text-decoration: none;
       color: #004d40;
       font-weight: 600;
       transition: color 0.3s ease;
+      font-size: 1rem;
     }
-
-    .nav-links a:hover {
+    header nav a:hover {
       color: #00bfa5;
     }
 
-    .carousel {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .carousel-images {
-      display: flex;
-      transition: transform 0.8s ease-in-out;
-      height: 100%;
-    }
-
-    .carousel-images img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2rem;
-      color: rgba(255, 255, 255, 0.8);
-      cursor: pointer;
-      padding: 10px;
-      user-select: none;
-      transition: background 0.3s;
-      z-index: 10;
-    }
-
-    .arrow:hover {
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 50%;
-    }
-
-    .arrow.prev {
-      left: 20px;
-    }
-
-    .arrow.next {
-      right: 20px;
-    }
-
-    .dots-container {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      z-index: 10;
-    }
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      margin: 0 5px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.6);
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .dot.active {
-      background: #009688;
-    }
-
-    .intro {
-      text-align: center;
-      padding: 80px 10%;
-      background: #00796b;
-      color: #ffffff;
-      border-bottom-left-radius: 50px;
-      border-bottom-right-radius: 50px;
-    }
-
-    .intro h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-
-    .intro p {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-      line-height: 1.8;
-    }
-
-    .whatsapp-btn {
-      background-color: #25D366;
-      color: white;
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-      display: inline-block;
-    }
-
-    .whatsapp-btn:hover {
-      background-color: #128C7E;
-    }
-
-    .offerings {
+    /* ===== MAIN SECTION STYLE ===== */
+    .main-section {
       padding: 60px 8%;
-      background: #f0fdfb;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
       text-align: center;
     }
 
-    .offerings h2 {
-      grid-column: 1/-1;
-      font-size: 2rem;
-      margin-bottom: 40px;
+    .main-section h2 {
+      font-size: 2.2rem;
+      color: #00695c;
+      margin-bottom: 20px;
+    }
+
+    .main-section p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    .main-section .btn {
+      display: inline-block;
+      padding: 10px 22px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-success {
+      background-color: #00796b;
+      color: white;
+      margin-right: 12px;
+    }
+
+    .btn-success:hover {
+      background-color: #004d40;
+    }
+
+    .btn-outline-success {
+      border: 2px solid #00796b;
       color: #00796b;
+      background-color: transparent;
     }
 
-    .card {
-      background: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s;
+    .btn-outline-success:hover {
+      background-color: #00796b;
+      color: white;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card .icon {
-      font-size: 50px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      color: #00796b;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      line-height: 1.6;
+    /* ===== FOOTER STYLE ===== */
+    footer {
+      background: #004d40;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 60px;
       font-size: 0.95rem;
     }
 
-    footer {
-      background: #004d40;
-      color: #fff;
-      text-align: center;
-      padding: 25px 10px;
-    }
-
-    /* Mobile responsiveness */
+    /* ===== RESPONSIVE STYLES ===== */
     @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
-        padding: 15px 5%;
+      header {
+        flex-direction: row; /* Keep the header horizontal */
+        justify-content: space-between;
       }
 
-      .logo-img {
-        height: 70px;
-        width: 70px;
-      }
-
-      .nav-links {
-        flex-direction: row;
-        gap: 20px;
-        margin-top: 10px;
+      header nav {
+        display: flex;
         justify-content: center;
-        width: 100%;
-        text-align: center;
-      }
-
-      .nav-links a {
-        padding: 10px;
-      }
-
-      .whatsapp-btn {
-        font-size: 1rem;
-        padding: 12px 24px;
-      }
-
-      .carousel {
-        height: 60vh;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .nav-links {
-        gap: 10px;
-      }
-
-      .whatsapp-btn {
-        font-size: 0.9rem;
-        padding: 10px 20px;
+        gap: 20px;
       }
     }
   </style>
 </head>
 <body>
-
   <!-- Updated Navigation Header for Home Page -->
   <nav>
     <a href="#carousel"><img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/logo.png" alt="Logo" class="logo-img"></a>
