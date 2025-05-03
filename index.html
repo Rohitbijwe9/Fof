@@ -214,6 +214,7 @@
       padding: 25px 10px;
     }
 
+    /* Mobile Responsiveness */
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -238,14 +239,27 @@
         padding: 12px 24px;
       }
 
-      nav a {
-        text-align: center;
+      .intro {
+        padding: 40px 5%;
+      }
+
+      .offerings {
+        padding: 40px 5%;
       }
     }
 
     @media (max-width: 480px) {
       .nav-links {
         gap: 10px;
+      }
+
+      .carousel-images {
+        display: none;
+      }
+
+      .whatsapp-btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
       }
     }
   </style>
@@ -276,7 +290,6 @@
     <div class="dots-container"></div>
   </section>
 
- 
   <section class="intro">
     <h2>Your Trusted Aquarium Partner</h2>
     <p>Providing you with the best aquatic life, tanks, and accessories for your home. We are here to help with every aspect of aquarium care.</p>
@@ -354,4 +367,4 @@
   </script>
 
 </body>  
-</html> 
+</html>
