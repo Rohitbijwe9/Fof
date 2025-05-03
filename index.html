@@ -309,13 +309,6 @@
       <a href="#contact">Contact</a>
     </div>
   </nav>
-    <a href="#carousel"><img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/logo.png" alt="Logo" class="logo-img"></a>
-    <div class="nav-links">
-      <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
-      <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
-      <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
-    </div>
-  </nav>
 
   <section id="carousel" class="carousel">
     <div class="carousel-images">
@@ -341,67 +334,66 @@
   <section class="offerings">
     <h2>Our Offerings</h2>
     <div class="card">
-      <div class="icon">&#128039;</div>
-      <h3>Fish & Aquatic Pets</h3>
-      <p>Explore a variety of colorful and healthy fishes for your aquarium.</p>
+      <div class="icon">🐟</div>
+      <h3>Fish & Aquatic Life</h3>
+      <p>We offer a variety of freshwater and saltwater fish for your aquarium.</p>
     </div>
     <div class="card">
-      <div class="icon">&#128717;</div>
-      <h3>Aquarium Tanks</h3>
-      <p>We offer tanks of various sizes and types to suit your needs.</p>
+      <div class="icon">🦠</div>
+      <h3>Aquarium Accessories</h3>
+      <p>Everything you need to keep your aquarium healthy, including tanks, filters, and lights.</p>
     </div>
     <div class="card">
-      <div class="icon">&#128050;</div>
-      <h3>Pet Care Products</h3>
-      <p>From food to accessories, we provide all you need for your pet’s well-being.</p>
+      <div class="icon">🧑‍🔬</div>
+      <h3>Consultation & Support</h3>
+      <p>Get expert advice on aquarium setup, maintenance, and fish care.</p>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Fish O Fish. All rights reserved.</p>
+    <p>&copy; 2025 Fish O Fish | All Rights Reserved</p>
   </footer>
 
   <script>
     let currentIndex = 0;
     const images = document.querySelectorAll('.carousel-images img');
-    const dots = document.querySelector('.dots-container');
+    const dotsContainer = document.querySelector('.dots-container');
 
-    // Create dots dynamically
-    images.forEach(() => {
+    // Create dots
+    images.forEach((_, index) => {
       const dot = document.createElement('div');
       dot.classList.add('dot');
-      dots.appendChild(dot);
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        changeSlide();
+      });
+      dotsContainer.appendChild(dot);
     });
 
     const dotElements = document.querySelectorAll('.dot');
 
     function changeSlide() {
       const offset = -currentIndex * 100;
-      document.querySelector('.carousel-images').style.transform = translateX(${offset}%);
+      document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
 
       dotElements.forEach(dot => dot.classList.remove('active'));
       dotElements[currentIndex].classList.add('active');
     }
 
-    document.querySelector('.next').addEventListener('click', () => {
+    document.querySelector('.arrow.next').addEventListener('click', () => {
       currentIndex = (currentIndex + 1) % images.length;
       changeSlide();
     });
 
-    document.querySelector('.prev').addEventListener('click', () => {
+    document.querySelector('.arrow.prev').addEventListener('click', () => {
       currentIndex = (currentIndex - 1 + images.length) % images.length;
       changeSlide();
     });
 
-    dotElements.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        currentIndex = index;
-        changeSlide();
-      });
-    });
-
-    // Initialize
+    // Initialize the first slide
     changeSlide();
   </script>
+
 </body>
 </html>
+
