@@ -28,14 +28,13 @@
       background: #fff;
       padding: 15px 5%;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
       flex-wrap: wrap;
-      flex-direction: column;
     }
 
     header img {
@@ -43,15 +42,13 @@
       width: 100px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 10px; /* Space between logo and buttons */
     }
 
     header nav {
       display: flex;
       gap: 25px;
-      justify-content: center;
       position: relative;
-      top: -10px; /* Slightly raise the nav items */
+      top: -10px; /* Adjust this to fine-tune vertical positioning */
     }
 
     header nav a {
@@ -90,15 +87,6 @@
         font-size: 1.1rem;
         padding: 5px 10px;
       }
-
-      .hero-section {
-        padding: 80px 10%;
-      }
-
-      .cta-button {
-        width: 100%;
-        padding: 12px 20px;
-      }
     }
 
     @media (max-width: 480px) {
@@ -127,7 +115,7 @@
 
     nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       padding: 10px 8%;
       background: rgba(255, 255, 255, 0.95);
@@ -148,7 +136,7 @@
     .nav-links {
       display: flex;
       gap: 30px;
-      justify-content: center;
+      justify-content: flex-end;
       width: 100%;
     }
 
