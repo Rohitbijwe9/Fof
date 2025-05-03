@@ -370,19 +370,19 @@
     document.querySelector(".next").addEventListener("click", nextSlide);
     document.querySelector(".prev").addEventListener("click", prevSlide);
 
-    // Dot Navigation
-    const dotContainer = document.querySelector(".dots-container");
-    images.forEach((_, index) => {
+    // Add dots to carousel
+    images.forEach(() => {
       const dot = document.createElement("div");
       dot.classList.add("dot");
-      dot.addEventListener("click", () => changeSlide(index));
-      dotContainer.appendChild(dot);
+      dot.addEventListener("click", () => changeSlide([...dots].indexOf(dot)));
+      document.querySelector(".dots-container").appendChild(dot);
     });
 
     changeSlide(currentIndex);
   </script>
 </body>
 </html>
+
 
 
 
