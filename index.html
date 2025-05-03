@@ -312,19 +312,18 @@
 
   </style>
 </head>
+<body>
 
-  <header>
-    <div class="logo-container">
-      <img src="your-logo.png" alt="Fish O Fish Logo">
-    </div>
-    <nav>
+  <!-- Navigation Bar -->
+  <nav>
+    <img src="logo.png" alt="Fish O Fish" class="logo-img">
+    <div class="nav-links">
       <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
       <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
       <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
 
-    </nav>
-    <button class="header-button">Order Now</button>
-  </header>
+    </div>
+  </nav>
 
   <section id="carousel" class="carousel">
     <div class="carousel-images">
@@ -393,7 +392,7 @@
       currentIndex = index;
       const offset = -100 * currentIndex;
 
-      document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+      document.querySelector('.carousel-images').style.transform = translateX(${offset}%);
       updateDots();
     }
 
