@@ -35,6 +35,7 @@
       top: 0;
       z-index: 1000;
       flex-wrap: wrap;
+      flex-direction: column;
     }
 
     header img {
@@ -42,14 +43,15 @@
       width: 100px;
       border-radius: 50%;
       object-fit: cover;
-      margin-right: 20px;
+      margin-bottom: 10px; /* Space between logo and buttons */
     }
 
     header nav {
       display: flex;
       gap: 25px;
       justify-content: center;
-      flex-grow: 1;
+      position: relative;
+      top: -10px; /* Slightly raise the nav items */
     }
 
     header nav a {
@@ -317,7 +319,7 @@
     }
 
   </style>
-</head
+</head>
 <body>
 
   <!-- Navigation Bar -->
