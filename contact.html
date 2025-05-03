@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us - Fish O Fish</title>
@@ -196,20 +197,26 @@
       font-size: 0.95rem;
     }
 
+    /* Responsive header for mobile */
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
+        padding: 10px 5%;
       }
 
       .logo-img {
-        margin-bottom: 15px;
+        height: 100px;
+        width: 100px;
+        margin-bottom: 10px;
       }
 
       .nav-links {
         flex-direction: column;
         align-items: center;
-        gap: 15px;
+        gap: 12px;
+        width: 100%;
+        margin-top: 10px;
       }
 
       .contact-details {
