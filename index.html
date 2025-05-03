@@ -18,8 +18,8 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
-      color: #004d40;
+      background: #f0f8ff;
+      color: #00796b;
       overflow-x: hidden;
     }
 
@@ -27,9 +27,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 8%;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 20px 8%;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -37,26 +37,29 @@
     }
 
     .logo-img {
-      height: 100px;
-      width: 100px;
+      height: 80px;
+      width: 80px;
       border-radius: 50%;
       object-fit: cover;
     }
 
     .nav-links {
       display: flex;
-      gap: 30px;
+      gap: 25px;
     }
 
     .nav-links a {
       text-decoration: none;
-      color: #004d40;
+      color: #00796b;
       font-weight: 600;
       transition: color 0.3s ease;
+      padding: 10px 15px;
+      border-radius: 5px;
     }
 
     .nav-links a:hover {
-      color: #00bfa5;
+      background: rgba(0, 0, 0, 0.1);
+      color: #004d40;
     }
 
     .carousel {
@@ -86,7 +89,7 @@
       font-size: 2rem;
       color: rgba(255, 255, 255, 0.8);
       cursor: pointer;
-      padding: 10px;
+      padding: 12px;
       user-select: none;
       transition: background 0.3s;
       z-index: 10;
@@ -115,8 +118,8 @@
     }
 
     .dot {
-      width: 12px;
-      height: 12px;
+      width: 15px;
+      height: 15px;
       margin: 0 5px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.6);
@@ -228,32 +231,24 @@
       }
 
       .nav-links {
-        flex-direction: row;
-        gap: 20px;
-        margin-top: 10px;
-        justify-content: center;
-      }
-
-      .whatsapp-btn {
-        font-size: 1rem;
-        padding: 12px 24px;
-      }
-
-      nav a {
-        text-align: center;
-      }
-
-      .nav-links {
         display: none;
         flex-direction: column;
         align-items: center;
         gap: 20px;
         margin-top: 20px;
+        width: 100%;
       }
 
       .nav-links a {
         color: #004d40;
         font-weight: 600;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a:hover {
+        background: #b2dfdb;
       }
 
       .hamburger {
@@ -266,12 +261,37 @@
       .hamburger.active + .nav-links {
         display: flex;
       }
+
+      .whatsapp-btn {
+        font-size: 1rem;
+        padding: 12px 24px;
+      }
+
+      .offerings {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+      }
+
+      .offerings h2 {
+        font-size: 1.5rem;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .intro h2 {
+        font-size: 2rem;
+      }
+
+      .intro p {
+        font-size: 1rem;
+      }
     }
 
-    /* Mobile Styles */
     @media (max-width: 480px) {
-      .nav-links {
-        gap: 10px;
+      .nav-links a {
+        padding: 10px;
       }
     }
   </style>
@@ -304,34 +324,32 @@
   </section>
 
   <section class="intro">
-    <h2>Name of Confidence in Aquarium World</h2>
-    <p>Your trusted partner for everything related to aquariums and pet care. We offer a wide variety of fish, tanks, accessories, and food for all your pets' needs.</p>
-    <a href="https://wa.me/919579991888" class="whatsapp-btn" target="_blank">Inquire on WhatsApp</a>
+    <h2>Your Trusted Aquarium Partner</h2>
+    <p>Providing you with the best aquatic life, tanks, and accessories for your home. We are here to help with every aspect of aquarium care.</p>
+    <a href="https://wa.me/919579991888" class="whatsapp-btn" target="_blank">Contact us on WhatsApp</a>
   </section>
 
   <section class="offerings">
-    <h2>We Deal With</h2>
+    <h2>Our Offerings</h2>
     <div class="card">
-      <div class="icon">🐠</div>
-      <h3>Freshwater Fish</h3>
-      <p>Explore a wide variety of freshwater fish that are perfect for your aquarium.</p>
+      <div class="icon">&#128039;</div>
+      <h3>Fish & Aquatic Pets</h3>
+      <p>Explore our wide variety of fishes, including tropical, saltwater, and ornamental species.</p>
     </div>
-    
     <div class="card">
-      <div class="icon">🌊</div>
-      <h3>Aquarium Setup</h3>
-      <p>Complete aquarium setup services, from tanks to lighting and filtration systems.</p>
+      <div class="icon">&#128713;</div>
+      <h3>Accessories & Tanks</h3>
+      <p>Find all the accessories needed for your fish tank setup including filters, lights, and more.</p>
     </div>
-
     <div class="card">
-      <div class="icon">🐦</div>
-      <h3>Love Birds</h3>
-      <p>We also offer a selection of vibrant love birds for bird lovers.</p>
+      <div class="icon">&#128063;</div>
+      <h3>Expert Consultation</h3>
+      <p>Get expert advice and support for setting up and maintaining your aquarium.</p>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 All Rights Reserved By Fish O Fish | Developed and Managed by Rohit Bijwe</p>
+    <p>&copy; 2025 Fish O Fish | All Rights Reserved</p>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -339,12 +357,15 @@
     $(document).ready(function() {
       var currentIndex = 0;
       var images = $('.carousel-images img');
+      var totalImages = images.length;
       var dotsContainer = $('.dots-container');
 
       function changeImage(index) {
-        var totalImages = images.length;
-        if (index >= totalImages) index = 0;
-        if (index < 0) index = totalImages - 1;
+        if (index >= totalImages) {
+          index = 0;
+        } else if (index < 0) {
+          index = totalImages - 1;
+        }
 
         currentIndex = index;
         $('.carousel-images').css('transform', 'translateX(' + (-100 * index) + '%)');
@@ -352,12 +373,10 @@
         dotsContainer.find('.dot').eq(index).addClass('active');
       }
 
-      // Create dots
       images.each(function(index) {
         dotsContainer.append('<div class="dot" data-index="' + index + '"></div>');
       });
 
-      // Initial active dot
       dotsContainer.find('.dot').eq(currentIndex).addClass('active');
 
       $('.arrow.next').click(function() {
@@ -373,12 +392,10 @@
         changeImage(index);
       });
 
-      // Optional: auto-slide every 5 seconds
       setInterval(function() {
         changeImage(currentIndex + 1);
       }, 5000);
 
-      // Mobile Hamburger Menu
       $('.hamburger').click(function() {
         $(this).toggleClass('active');
         $('.nav-links').toggle();
