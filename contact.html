@@ -2,56 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us - Fish O Fish</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
+    /* Keep your existing styling unchanged */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: #f9fdfc;
       color: #004d40;
       line-height: 1.6;
     }
-
-    nav {
+    /* ===== NAVBAR STYLE (copied from About page) ===== */
+    header {
+      background: #fff;
+      padding: 15px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 10%;
-      background: #ffffff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-
-    .logo-img {
-      height: 120px;
-      width: 120px;
+    header img {
+      height: 100px;
+      width: 100px;
       border-radius: 50%;
       object-fit: cover;
     }
-
-    .nav-links {
+    header nav {
       display: flex;
       gap: 25px;
     }
-
-    .nav-links a {
+    header nav a {
       text-decoration: none;
       color: #004d40;
       font-weight: 600;
-      transition: all 0.3s ease;
+      transition: color 0.3s ease;
       font-size: 1rem;
     }
-
-    .nav-links a:hover {
+    header nav a:hover {
       color: #00bfa5;
     }
 
@@ -197,30 +193,17 @@
     }
 
     @media (max-width: 768px) {
-      nav {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+      header nav {
         flex-direction: column;
         align-items: center;
-        padding: 10px 5%;
       }
-
-      .logo-img {
-        height: 100px;
-        width: 100px;
-        margin-bottom: 10px;
-      }
-
-      .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        width: 100%;
-        margin-top: 10px;
-      }
-
       .contact-details {
         flex-direction: column;
       }
-
       .contact-card {
         width: 100%;
       }
@@ -229,15 +212,17 @@
 </head>
 <body>
 
-  <nav>
-    <a href="#carousel"><img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/logo.png" alt="Logo" class="logo-img"></a>
-    <div class="nav-links">
-      <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
-      <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
-      <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
-    </div>
-  </nav>
+  <!-- Navbar from About page -->
+  <header>
+    <a href="index.html"><img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/logo.png" alt="Fish O Fish Logo"></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
+  <!-- Contact Section -->
   <section class="contact-section" id="contact">
     <h2>Contact Fish O Fish</h2>
     <p>We provide services for <strong>booking your slot</strong> or <strong>inquiry</strong>. Feel free to reach out!</p>
@@ -248,7 +233,6 @@
     </div>
 
     <h2>Our Branches</h2>
-
     <div class="contact-details">
       <!-- Branch 1 -->
       <div class="contact-card">
@@ -283,16 +267,13 @@
           <a href="https://www.facebook.com/share/18vgwwyLnK/?mibextid=wwXIfr" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" /></a>
           <a href="https://wa.me/919579991888" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" /></a>
         </div>
-        <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.1886618941793!2d77.4973709!3d20.7886747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd74430e6f09dc9%3A0x2b9b103f73a92e6f!2sFish%20O%20Fish%20-%20Karanja%20Lad!5e0!3m2!1sen!2sin!4v1714789988875!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
-        </div>
       </div>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Fish O Fish. All Rights Reserved.
+    &copy; 2025 Fish O Fish. All rights reserved.
   </footer>
-
 </body>
 </html>
+
