@@ -19,42 +19,44 @@
       line-height: 1.6;
     }
 
-    nav {
+    /* ===== HEADER STYLE (updated) ===== */
+    header {
+      background: #fff;
+      padding: 15px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 5%;
-      background: #ffffff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
-    .logo-img {
+    header img {
       height: 100px;
       width: 100px;
       border-radius: 50%;
       object-fit: cover;
     }
 
-    .nav-links {
+    header nav {
       display: flex;
       gap: 25px;
     }
 
-    .nav-links a {
+    header nav a {
       text-decoration: none;
       color: #004d40;
       font-weight: 600;
-      transition: all 0.3s ease;
+      transition: color 0.3s ease;
       font-size: 1rem;
     }
 
-    .nav-links a:hover {
+    header nav a:hover {
       color: #00bfa5;
     }
 
+    /* ===== ABOUT SECTION ===== */
     .about-section {
       padding: 60px 8%;
       text-align: center;
@@ -67,9 +69,9 @@
     }
 
     .about-section p {
-      font-size: 2.2rem;
-      color: #00695c;
+      font-size: 1.2rem;
       margin-bottom: 20px;
+      color: #555;
     }
 
     .about-section img {
@@ -79,6 +81,7 @@
       margin-top: 20px;
     }
 
+    /* ===== SERVICES ===== */
     .services {
       display: flex;
       justify-content: space-around;
@@ -124,21 +127,17 @@
       font-size: 0.95rem;
     }
 
+    /* ===== RESPONSIVE STYLES ===== */
     @media (max-width: 768px) {
-      nav {
+      header {
         flex-direction: row;
         justify-content: space-between;
       }
 
-      .nav-links {
+      header nav {
         display: flex;
-        justify-content: flex-end;
-        gap: 15px;
-        margin-left: auto;
-      }
-
-      .logo-img {
-        order: -1; /* Move logo to left on mobile */
+        justify-content: center;
+        gap: 20px;
       }
 
       .services {
