@@ -25,43 +25,37 @@
     }
 
     /* Header styles */
-    nav {
+        header {
+      background: #fff;
+      padding: 15px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 5%;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
-      flex-wrap: wrap;
     }
-
-    .logo-img {
+    header img {
       height: 100px;
       width: 100px;
       border-radius: 50%;
       object-fit: cover;
     }
-
-    .nav-links {
+    header nav {
       display: flex;
       gap: 25px;
     }
-
-    .nav-links a {
+    header nav a {
       text-decoration: none;
       color: #004d40;
       font-weight: 600;
       transition: color 0.3s ease;
       font-size: 1rem;
     }
-
-    .nav-links a:hover {
+    header nav a:hover {
       color: #00bfa5;
     }
-
     /* Active link style for About page header */
     .nav-links a.active {
       color: #009688;
