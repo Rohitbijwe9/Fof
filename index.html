@@ -6,6 +6,7 @@
   <title>Fish O Fish</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
+    /* Reset and base styles */
     * {
       margin: 0;
       padding: 0;
@@ -18,112 +19,19 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color:#f9fdfc;
+      background-color: #f9fdfc;
       color: #004d40;
-      line-height:1.6;
+      line-height: 1.6;
     }
 
-    /* ===== HEADER STYLE ===== */
-    header {
-      background: #fff;
-      padding: 15px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    header img {
-      height: 100px;
-      width: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    header nav {
-      display: flex;
-      gap: 25px;
-    }
-
-    header nav a {
-      text-decoration: none;
-      color: #004d40;
-      font-weight: 600;
-      transition: color 0.3s ease;
-      font-size: 1rem;
-    }
-
-    header nav a:hover {
-      color: #00bfa5;
-    }
-
-    /* ===== RESPONSIVE STYLES ===== */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: row;
-        justify-content:space-between;
-      }
-
-      header img {
-        height: 80px;
-        width: 80px;
-      }
-
-      header nav {
-        display:flex;
-        justify-content: center;
-        gap: 20 px;
-      }
-
-      header nav a {
-        font-size: 1.1rem;
-        padding: 5px 10px;
-      }
-
-      .hero-section {
-        padding: 80px 10%;
-      }
-
-      .cta-button {
-        width: 100%;
-        padding: 12px 20px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .cta-button {
-        font-size: 1rem;
-      }
-
-      header nav a {
-        font-size: 1rem;
-        padding: 5px 10px;
-      }
-
-      header {
-        padding: 10px 5%;
-      }
-
-      header img {
-        height: 70px;
-        width: 70px;
-      }
-
-      header nav {
-        gap: 10px;
-      }
-    }
-
+    /* Header styles */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 8%;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 15px 5%;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -139,9 +47,7 @@
 
     .nav-links {
       display: flex;
-      gap: 30px;
-      justify-content: flex-end;
-      width: 100%;
+      gap: 25px;
     }
 
     .nav-links a {
@@ -149,12 +55,14 @@
       color: #004d40;
       font-weight: 600;
       transition: color 0.3s ease;
+      font-size: 1rem;
     }
 
     .nav-links a:hover {
       color: #00bfa5;
     }
 
+    /* Carousel styles */
     .carousel {
       position: relative;
       width: 100%;
@@ -224,6 +132,7 @@
       background: #009688;
     }
 
+    /* Introduction section */
     .intro {
       text-align: center;
       padding: 80px 10%;
@@ -260,6 +169,7 @@
       background-color: #128C7E;
     }
 
+    /* Offerings section */
     .offerings {
       padding: 60px 8%;
       background: #f0fdfb;
@@ -303,6 +213,7 @@
       font-size: 0.95rem;
     }
 
+    /* Footer styles */
     footer {
       background: #004d40;
       color: #fff;
@@ -310,6 +221,55 @@
       padding: 25px 10px;
     }
 
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .logo-img {
+        height: 80px;
+        width: 80px;
+      }
+
+      .nav-links {
+        gap: 20px;
+      }
+
+      .nav-links a {
+        font-size: 1.1rem;
+        padding: 5px 10px;
+      }
+
+      .hero-section {
+        padding: 80px 10%;
+      }
+
+      .cta-button {
+        width: 100%;
+        padding: 12px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-img {
+        height: 70px;
+        width: 70px;
+      }
+
+      .nav-links {
+        gap: 10px;
+      }
+
+      .nav-links a {
+        font-size: 1rem;
+        padding: 5px 10px;
+      }
+
+      nav {
+        padding: 10px 5%;
+      }
+
+      .cta-button {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -321,10 +281,10 @@
       <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
       <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
       <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
-
     </div>
   </nav>
 
+  <!-- Carousel Section -->
   <section id="carousel" class="carousel">
     <div class="carousel-images">
       <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof5.jpg" alt="Fish">
@@ -371,41 +331,9 @@
     <p>&copy; 2025 Fish O Fish. All rights reserved.</p>
   </footer>
 
+  <!-- Carousel Script -->
   <script>
     let currentIndex = 0;
-    const images = document.querySelectorAll('.carousel-images img');
-    const dotsContainer = document.querySelector('.dots-container');
-
-    images.forEach((_, index) => {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      dot.addEventListener('click', () => moveToSlide(index));
-      dotsContainer.appendChild(dot);
-    });
-
-    const dots = document.querySelectorAll('.dot');
-
-    function moveToSlide(index) {
-      if (index < 0) index = images.length - 1;
-      if (index >= images.length) index = 0;
-
-      currentIndex = index;
-      const offset = -100 * currentIndex;
-
-      document.querySelector('.carousel-images').style.transform = translateX(${offset}%);
-      updateDots();
-    }
-
-    function updateDots() {
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[currentIndex].classList.add('active');
-    }
-
-    document.querySelector('.prev').addEventListener('click', () => moveToSlide(currentIndex - 1));
-    document.querySelector('.next').addEventListener('click', () => moveToSlide(currentIndex + 1));
-
-    setInterval(() => moveToSlide(currentIndex + 1), 5000);
-  </script>
-
-</body>
-</html>
+    const images = document
+::contentReference[oaicite:0]{index=0}
+ 
