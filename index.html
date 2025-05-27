@@ -25,42 +25,41 @@
     }
 
     /* Header styles */
-    header {
-      background: #fff;
-      padding: 15px 5%;
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 15px 5%;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
+      flex-wrap: wrap;
     }
-    header img {
+
+    .logo-img {
       height: 100px;
       width: 100px;
       border-radius: 50%;
       object-fit: cover;
     }
-    header nav {
+
+    .nav-links {
       display: flex;
       gap: 25px;
     }
-    header nav a {
+
+    .nav-links a {
       text-decoration: none;
       color: #004d40;
       font-weight: 600;
       transition: color 0.3s ease;
       font-size: 1rem;
     }
-    header nav a:hover {
+
+    .nav-links a:hover {
       color: #00bfa5;
-    }
-    /* Active link style for About page header */
-    .nav-links a.active {
-      color: #009688;
-      border-bottom: 2px solid #009688;
-      padding-bottom: 2px;
     }
 
     /* Carousel styles */
@@ -224,14 +223,12 @@
 
     /* Responsive styles */
     @media (max-width: 768px) {
-      header {
-        flex-direction: row;
-        justify-content: space-between;
+      .logo-img {
+        height: 80px;
+        width: 80px;
       }
 
-      header nav {
-        display: flex;
-        justify-content: center;
+      .nav-links {
         gap: 20px;
       }
 
@@ -282,7 +279,7 @@
     <img src="logo.png" alt="Fish O Fish" class="logo-img">
     <div class="nav-links">
       <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
-      <a href="https://rohitbijwe9.github.io/Fof/about.html" class="active">About</a>
+      <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
       <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
     </div>
   </nav>
@@ -337,67 +334,5 @@
   <!-- Carousel Script -->
   <script>
     let currentIndex = 0;
-    const images = document.querySelector('.carousel-images');
-    const totalImages = images.children.length;
-
-    const prevArrow = document.querySelector('.arrow.prev');
-    const nextArrow = document.querySelector('.arrow.next');
-    const dotsContainer = document.querySelector('.dots-container');
-
-    // Create dots based on number of images
-    for(let i = 0; i < totalImages; i++) {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      if(i === 0) dot.classList.add('active');
-      dot.dataset.index = i;
-      dotsContainer.appendChild(dot);
-    }
-
-    const dots = dotsContainer.querySelectorAll('.dot');
-
-    function updateCarousel() {
-      images.style.transform = `translateX(-${currentIndex * 100}%)`;
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[currentIndex].classList.add('active');
-    }
-
-    function showNext() {
-      currentIndex = (currentIndex + 1) % totalImages;
-      updateCarousel();
-    }
-
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-      updateCarousel();
-    }
-
-    nextArrow.addEventListener('click', () => {
-      showNext();
-      resetInterval();
-    });
-
-    prevArrow.addEventListener('click', () => {
-      showPrev();
-      resetInterval();
-    });
-
-    dots.forEach(dot => {
-      dot.addEventListener('click', e => {
-        currentIndex = Number(e.target.dataset.index);
-        updateCarousel();
-        resetInterval();
-      });
-    });
-
-    // Auto-slide every 5 seconds
-    let slideInterval = setInterval(showNext, 5000);
-
-    function resetInterval() {
-      clearInterval(slideInterval);
-      slideInterval = setInterval(showNext, 5000);
-    }
-  </script>
-
-</body>
-</html>
-
+    const images = document
+::contentReference[oaicite:0]{index=0}
