@@ -62,6 +62,13 @@
       color: #00bfa5;
     }
 
+    /* Active link style for About page header */
+    .nav-links a.active {
+      color: #009688;
+      border-bottom: 2px solid #009688;
+      padding-bottom: 2px;
+    }
+
     /* Carousel styles */
     .carousel {
       position: relative;
@@ -279,7 +286,7 @@
     <img src="logo.png" alt="Fish O Fish" class="logo-img">
     <div class="nav-links">
       <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
-      <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
+      <a href="https://rohitbijwe9.github.io/Fof/about.html" class="active">About</a>
       <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
     </div>
   </nav>
@@ -334,6 +341,45 @@
   <!-- Carousel Script -->
   <script>
     let currentIndex = 0;
-    const images = document
-::contentReference[oaicite:0]{index=0}
- 
+    const images = document.querySelector('.carousel-images');
+    const totalImages = images.children.length;
+
+    const prevArrow = document.querySelector('.arrow.prev');
+    const nextArrow = document.querySelector('.arrow.next');
+    const dotsContainer = document.querySelector('.dots-container');
+
+    // Create dots based on number of images
+    for(let i = 0; i < totalImages; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if(i === 0) dot.classList.add('active');
+      dot.dataset.index = i;
+      dotsContainer.appendChild(dot);
+    }
+
+    const dots = dotsContainer.querySelectorAll('.dot');
+
+    function updateCarousel() {
+      images.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[currentIndex].classList.add('active');
+    }
+
+    prevArrow.addEventListener('click', () => {
+      currentIndex = (currentIndex === 0) ? totalImages - 1 : currentIndex - 1;
+      updateCarousel();
+    });
+
+    nextArrow.addEventListener('click', () => {
+      currentIndex = (currentIndex === totalImages - 1) ? 0 : currentIndex + 1;
+      updateCarousel();
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        currentIndex = parseInt(dot.dataset.index);
+        updateCarousel();
+      });
+    });
+
+    // Auto slide every 
