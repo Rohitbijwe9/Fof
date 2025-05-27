@@ -25,7 +25,7 @@
     }
 
     /* Header styles */
-        header {
+    header {
       background: #fff;
       padding: 15px 5%;
       display: flex;
@@ -361,21 +361,43 @@
       dots[currentIndex].classList.add('active');
     }
 
-    prevArrow.addEventListener('click', () => {
-      currentIndex = (currentIndex === 0) ? totalImages - 1 : currentIndex - 1;
+    function showNext() {
+      currentIndex = (currentIndex + 1) % totalImages;
       updateCarousel();
-    });
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+      updateCarousel();
+    }
 
     nextArrow.addEventListener('click', () => {
-      currentIndex = (currentIndex === totalImages - 1) ? 0 : currentIndex + 1;
-      updateCarousel();
+      showNext();
+      resetInterval();
+    });
+
+    prevArrow.addEventListener('click', () => {
+      showPrev();
+      resetInterval();
     });
 
     dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        currentIndex = parseInt(dot.dataset.index);
+      dot.addEventListener('click', e => {
+        currentIndex = Number(e.target.dataset.index);
         updateCarousel();
+        resetInterval();
       });
     });
 
-    // Auto slide every 
+    // Auto-slide every 5 seconds
+    let slideInterval = setInterval(showNext, 5000);
+
+    function resetInterval() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(showNext, 5000);
+    }
+  </script>
+
+</body>
+</html>
+
