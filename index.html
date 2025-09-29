@@ -1,138 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fish O Fish Aquarium & Pet Shop | Home</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fish O Fish</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
-    /* ===== RESET ===== */
+    /* Reset and base styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #f4f8fb;
-      color: #333;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9fdfc;
+      color: #004d40;
+      line-height: 1.6;
     }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER STYLE (same as About/Contact) ===== */
     header {
-      background: #0077b6;
-      padding: 15px 30px;
+      background: #fff;
+      padding: 15px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
-    header h1 {
-      color: white;
-      font-size: 22px;
+    header img {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     header nav {
       display: flex;
-      gap: 20px;
+      gap: 25px;
+      flex-wrap: wrap; /* ✅ Fix for mobile */
     }
 
     header nav a {
-      color: white;
       text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      transition: 0.3s;
+      color: #004d40;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      font-size: 1rem;
     }
 
     header nav a:hover {
-      text-decoration: underline;
+      color: #00bfa5;
     }
 
     /* ===== CAROUSEL ===== */
     .carousel {
       position: relative;
       width: 100%;
-      height: 400px;
+      height: 100vh;
       overflow: hidden;
     }
 
-    .carousel img {
+    .carousel-images {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+      height: 100%;
+    }
+
+    .carousel-images img {
       width: 100%;
-      height: 400px;
+      height: 100%;
       object-fit: cover;
-      display: none;
+      flex-shrink: 0;
     }
 
-    .carousel img.active {
-      display: block;
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+      padding: 10px;
+      user-select: none;
+      transition: background 0.3s;
+      z-index: 10;
     }
 
-    /* ===== INTRO SECTION ===== */
+    .arrow:hover {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+    }
+
+    .arrow.prev { left: 20px; }
+    .arrow.next { right: 20px; }
+
+    .dots-container {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .dot.active { background: #009688; }
+
+    /* ===== INTRO ===== */
     .intro {
       text-align: center;
-      padding: 60px 20px;
-      background: white;
+      padding: 80px 10%;
+      background: #00796b;
+      color: #ffffff;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
     }
 
     .intro h2 {
-      font-size: 28px;
-      margin-bottom: 15px;
-      color: #0077b6;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-weight: 600;
     }
 
     .intro p {
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #555;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      line-height: 1.8;
     }
 
     .whatsapp-btn {
-      display: inline-block;
-      background: #25d366;
+      background-color: #25D366;
       color: white;
-      padding: 12px 25px;
-      border-radius: 30px;
-      font-size: 18px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 5px;
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
+      transition: background-color 0.3s;
+      display: inline-block;
     }
 
     .whatsapp-btn:hover {
-      background: #1da851;
+      background-color: #128C7E;
     }
 
-    /* ===== SERVICES ===== */
-    .services {
-      padding: 60px 20px;
-      background: #f9f9f9;
+    /* ===== OFFERINGS ===== */
+    .offerings {
+      padding: 60px 8%;
+      background: #f0fdfb;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* ✅ Center on mobile */
+    }
+
+    .offerings h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #00796b;
       text-align: center;
     }
 
-    .services h2 {
-      font-size: 28px;
-      margin-bottom: 40px;
-      color: #0077b6;
-    }
-
-    .service-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      width: 100%;
     }
 
     .card {
-      background: white;
-      padding: 20px;
-      width: 250px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-      transition: 0.3s;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
       text-align: center;
     }
 
@@ -140,129 +198,159 @@
       transform: translateY(-5px);
     }
 
+    .card .icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
     .card h3 {
-      color: #0077b6;
+      color: #00796b;
       margin-bottom: 10px;
     }
 
     .card p {
-      font-size: 15px;
-      color: #555;
+      line-height: 1.6;
+      font-size: 0.95rem;
     }
 
     /* ===== FOOTER ===== */
     footer {
-      background: #0077b6;
+      background: #004d40;
       color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 50px;
+      padding: 20px 10px;
+      margin-top: 60px;
+      font-size: 0.95rem;
     }
 
-    /* ===== RESPONSIVE STYLES ===== */
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      header {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-      header h1 {
-        font-size: 18px;
-      }
-
       header nav {
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 10px;
+        justify-content: center; /* ✅ Match About/Contact */
       }
 
       .carousel {
-        height: 250px;
+        height: 60vh;
       }
 
-      .carousel img {
-        height: 250px;
+      .offerings {
+        padding: 40px 5%;
       }
 
-      .service-cards {
-        flex-direction: column;
-        align-items: center;
+      .cards {
+        grid-template-columns: 1fr; /* ✅ Stack cards */
       }
 
       .card {
-        width: 90%;
-        max-width: 300px;
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
+  <!-- Header Section -->
   <header>
-    <h1>Fish O Fish Aquarium</h1>
+    <a href="index.html">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/logo.jpg" alt="Logo" class="logo-img">
+    </a>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
+      <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
+      <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- ===== CAROUSEL ===== -->
-  <div class="carousel">
-    <img src="https://source.unsplash.com/1600x400/?fish,aquarium" class="active" alt="Aquarium">
-    <img src="https://source.unsplash.com/1600x400/?pets,fish" alt="Pets">
-    <img src="https://source.unsplash.com/1600x400/?aquarium,shop" alt="Shop">
-  </div>
-
-  <!-- ===== INTRO SECTION ===== -->
-  <section class="intro">
-    <h2>Welcome to Fish O Fish Aquarium & Pet Shop</h2>
-    <p>Your trusted partner for aquariums, ornamental fish, and premium pet supplies.</p>
-    <a href="https://wa.me/919999999999" class="whatsapp-btn" target="_blank">Chat on WhatsApp</a>
+  <!-- Carousel Section -->
+  <section id="carousel" class="carousel">
+    <div class="carousel-images">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof5.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish1.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof1.jpg" alt="Fish Tank">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fish2.jpg" alt="Fish">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof4.jpg" alt="Dog Food & Accessories">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/fof3.jpg" alt="Aquarium & Pet Products">
+    </div>
+    <span class="arrow prev">&#10094;</span>
+    <span class="arrow next">&#10095;</span>
+    <div class="dots-container"></div>
   </section>
 
-  <!-- ===== SERVICES ===== -->
-  <section class="services">
-    <h2>Our Services</h2>
-    <div class="service-cards">
+  <!-- Introduction Section -->
+  <section class="intro">
+    <h2>Welcome to Fish O Fish</h2>
+    <p>Explore our wide range of aquarium and pet supplies, including premium food, tanks, accessories, and more. Find everything your aquatic friends need right here!</p>
+    <a href="https://wa.me/918623997288" class="whatsapp-btn">Contact Us on WhatsApp</a>
+  </section>
+
+  <!-- Offerings Section -->
+  <section class="offerings">
+    <h2>Our Offerings</h2>
+    <div class="cards">
       <div class="card">
-        <h3>Ornamental Fish</h3>
-        <p>Wide collection of exotic ornamental fish to beautify your aquarium.</p>
+        <div class="icon">🐟</div>
+        <h3>Aquariums</h3>
+        <p>Find the perfect aquarium for your fish with various sizes, designs, and accessories for a vibrant home environment.</p>
       </div>
       <div class="card">
-        <h3>Aquarium Setup</h3>
-        <p>Custom aquarium design & installation for homes and businesses.</p>
+        <div class="icon">🦴</div>
+        <h3>Pet Food</h3>
+        <p>Explore a wide range of pet food for all species, from dogs and cats to birds and aquatic animals.</p>
       </div>
       <div class="card">
-        <h3>Pet Accessories</h3>
-        <p>Quality food, filters, tanks, and accessories for all your pets.</p>
+        <div class="icon">🐠</div>
+        <h3>Accessories</h3>
+        <p>Get top-quality accessories for your aquarium and pets, including filters, lighting, and cleaning tools.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Fish O Fish Aquarium & Pet Shop. All rights reserved.</p>
+    <p>© 2025 All Rights Reserved By Fish O Fish | Developed and Managed by Rohit Bijwe</p>
   </footer>
 
-  <!-- ===== JS: SIMPLE CAROUSEL ===== -->
+  <!-- Carousel Script -->
   <script>
-    let carouselIndex = 0;
-    const slides = document.querySelectorAll(".carousel img");
+    let currentIndex = 0;
+    const images = document.querySelector(".carousel-images");
+    const totalImages = images.children.length;
+    const dotsContainer = document.querySelector(".dots-container");
 
-    function showSlide() {
-      slides.forEach((slide, index) => {
-        slide.classList.remove("active");
-        if (index === carouselIndex) {
-          slide.classList.add("active");
-        }
+    function updateCarousel() {
+      images.style.transform = `translateX(-${currentIndex * 100}%)`;
+      document.querySelectorAll(".dot").forEach((dot, idx) => {
+        dot.classList.toggle("active", idx === currentIndex);
       });
-      carouselIndex = (carouselIndex + 1) % slides.length;
     }
 
-    setInterval(showSlide, 3000);
-  </script>
+    function showNext() {
+      currentIndex = (currentIndex + 1) % totalImages;
+      updateCarousel();
+    }
 
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+      updateCarousel();
+    }
+
+    document.querySelector(".next").addEventListener("click", showNext);
+    document.querySelector(".prev").addEventListener("click", showPrev);
+
+    // Dots
+    for (let i = 0; i < totalImages; i++) {
+      const dot = document.createElement("div");
+      dot.classList.add("dot");
+      if (i === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => {
+        currentIndex = i;
+        updateCarousel();
+      });
+      dotsContainer.appendChild(dot);
+    }
+
+    // Auto Slide
+    setInterval(showNext, 4000);
+  </script>
 </body>
 </html>
