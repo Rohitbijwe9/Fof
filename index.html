@@ -24,7 +24,7 @@
       line-height: 1.6;
     }
 
-    /* ===== HEADER STYLE (same as About/Contact) ===== */
+    /* ===== HEADER STYLE (same as About page) ===== */
     header {
       background: #fff;
       padding: 15px 5%;
@@ -47,7 +47,6 @@
     header nav {
       display: flex;
       gap: 25px;
-      flex-wrap: wrap; /* ✅ Fix for mobile */
     }
 
     header nav a {
@@ -166,23 +165,17 @@
     .offerings {
       padding: 60px 8%;
       background: #f0fdfb;
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* ✅ Center on mobile */
-    }
-
-    .offerings h2 {
-      font-size: 2rem;
-      margin-bottom: 40px;
-      color: #00796b;
-      text-align: center;
-    }
-
-    .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 40px;
-      width: 100%;
+      text-align: center;
+    }
+
+    .offerings h2 {
+      grid-column: 1/-1;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #00796b;
     }
 
     .card {
@@ -191,7 +184,6 @@
       border-radius: 15px;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s;
-      text-align: center;
     }
 
     .card:hover {
@@ -213,7 +205,7 @@
       font-size: 0.95rem;
     }
 
-    /* ===== FOOTER ===== */
+    /* ===== FOOTER (same as About page) ===== */
     footer {
       background: #004d40;
       color: white;
@@ -225,24 +217,14 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      header nav {
-        justify-content: center; /* ✅ Match About/Contact */
-      }
-
-      .carousel {
-        height: 60vh;
-      }
-
-      .offerings {
-        padding: 40px 5%;
-      }
-
-      .cards {
-        grid-template-columns: 1fr; /* ✅ Stack cards */
+      .services {
+        flex-direction: column;
+        align-items: center;
       }
 
       .card {
-        width: 100%;
+        width: 80%;
+        margin-bottom: 20px;
       }
     }
   </style>
@@ -286,22 +268,20 @@
   <!-- Offerings Section -->
   <section class="offerings">
     <h2>Our Offerings</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="icon">🐟</div>
-        <h3>Aquariums</h3>
-        <p>Find the perfect aquarium for your fish with various sizes, designs, and accessories for a vibrant home environment.</p>
-      </div>
-      <div class="card">
-        <div class="icon">🦴</div>
-        <h3>Pet Food</h3>
-        <p>Explore a wide range of pet food for all species, from dogs and cats to birds and aquatic animals.</p>
-      </div>
-      <div class="card">
-        <div class="icon">🐠</div>
-        <h3>Accessories</h3>
-        <p>Get top-quality accessories for your aquarium and pets, including filters, lighting, and cleaning tools.</p>
-      </div>
+    <div class="card">
+      <div class="icon">🐟</div>
+      <h3>Aquariums</h3>
+      <p>Find the perfect aquarium for your fish with various sizes, designs, and accessories for a vibrant home environment.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🦴</div>
+      <h3>Pet Food</h3>
+      <p>Explore a wide range of pet food for all species, from dogs and cats to birds and aquatic animals.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🐠</div>
+      <h3>Accessories</h3>
+      <p>Get top-quality accessories for your aquarium and pets, including filters, lighting, and cleaning tools.</p>
     </div>
   </section>
 
@@ -353,4 +333,4 @@
     setInterval(showNext, 4000);
   </script>
 </body>
-</html>
+</html> 
