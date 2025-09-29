@@ -24,33 +24,32 @@
       line-height: 1.6;
     }
 
-    /* Header styles */
-    nav {
+    /* ===== HEADER STYLE (same as About page) ===== */
+    header {
+      background: #fff;
+      padding: 15px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 5%;
-      background: #fff;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
-      flex-wrap: wrap;
     }
 
-    .logo-img {
+    header img {
       height: 100px;
       width: 100px;
       border-radius: 50%;
       object-fit: cover;
     }
 
-    .nav-links {
+    header nav {
       display: flex;
       gap: 25px;
     }
 
-    .nav-links a {
+    header nav a {
       text-decoration: none;
       color: #004d40;
       font-weight: 600;
@@ -58,11 +57,11 @@
       font-size: 1rem;
     }
 
-    .nav-links a:hover {
+    header nav a:hover {
       color: #00bfa5;
     }
 
-    /* Carousel styles */
+    /* ===== CAROUSEL ===== */
     .carousel {
       position: relative;
       width: 100%;
@@ -101,13 +100,8 @@
       border-radius: 50%;
     }
 
-    .arrow.prev {
-      left: 20px;
-    }
-
-    .arrow.next {
-      right: 20px;
-    }
+    .arrow.prev { left: 20px; }
+    .arrow.next { right: 20px; }
 
     .dots-container {
       position: absolute;
@@ -128,11 +122,9 @@
       transition: background 0.3s;
     }
 
-    .dot.active {
-      background: #009688;
-    }
+    .dot.active { background: #009688; }
 
-    /* Introduction section */
+    /* ===== INTRO ===== */
     .intro {
       text-align: center;
       padding: 80px 10%;
@@ -169,7 +161,7 @@
       background-color: #128C7E;
     }
 
-    /* Offerings section */
+    /* ===== OFFERINGS ===== */
     .offerings {
       padding: 60px 8%;
       background: #f0fdfb;
@@ -213,76 +205,43 @@
       font-size: 0.95rem;
     }
 
-    /* Footer styles */
+    /* ===== FOOTER (same as About page) ===== */
     footer {
       background: #004d40;
-      color: #fff;
+      color: white;
       text-align: center;
-      padding: 25px 10px;
+      padding: 20px 10px;
+      margin-top: 60px;
+      font-size: 0.95rem;
     }
 
-    /* Responsive styles */
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .logo-img {
-        height: 80px;
-        width: 80px;
+      .services {
+        flex-direction: column;
+        align-items: center;
       }
 
-      .nav-links {
-        gap: 20px;
-      }
-
-      .nav-links a {
-        font-size: 1.1rem;
-        padding: 5px 10px;
-      }
-
-      .hero-section {
-        padding: 80px 10%;
-      }
-
-      .cta-button {
-        width: 100%;
-        padding: 12px 20px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .logo-img {
-        height: 70px;
-        width: 70px;
-      }
-
-      .nav-links {
-        gap: 10px;
-      }
-
-      .nav-links a {
-        font-size: 1rem;
-        padding: 5px 10px;
-      }
-
-      nav {
-        padding: 10px 5%;
-      }
-
-      .cta-button {
-        font-size: 1rem;
+      .card {
+        width: 80%;
+        margin-bottom: 20px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav>
-    <img src="logo.jpg" alt="Fish O Fish" class="logo-img">
-    <div class="nav-links">
+  <!-- Header Section -->
+  <header>
+    <a href="index.html">
+      <img src="https://raw.githubusercontent.com/Rohitbijwe9/Fof/main/logo.jpg" alt="Logo" class="logo-img">
+    </a>
+    <nav>
       <a href="https://rohitbijwe9.github.io/Fof/index.html">Home</a>
       <a href="https://rohitbijwe9.github.io/Fof/about.html">About</a>
       <a href="https://rohitbijwe9.github.io/Fof/contact.html">Contact</a>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <!-- Carousel Section -->
   <section id="carousel" class="carousel">
@@ -328,11 +287,51 @@
 
   <!-- Footer -->
   <footer>
-     <p>© 2025 All Rights Reserved By Fish O Fish | Developed and Managed by Rohit Bijwe</p>
+    <p>© 2025 All Rights Reserved By Fish O Fish | Developed and Managed by Rohit Bijwe</p>
   </footer>
 
   <!-- Carousel Script -->
   <script>
     let currentIndex = 0;
-    const images = document
-::contentReference[oaicite:0]{index=0}
+    const images = document.querySelector(".carousel-images");
+    const totalImages = images.children.length;
+    const dotsContainer = document.querySelector(".dots-container");
+
+    function updateCarousel() {
+      images.style.transform = `translateX(-${currentIndex * 100}%)`;
+      document.querySelectorAll(".dot").forEach((dot, idx) => {
+        dot.classList.toggle("active", idx === currentIndex);
+      });
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % totalImages;
+      updateCarousel();
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+      updateCarousel();
+    }
+
+    document.querySelector(".next").addEventListener("click", showNext);
+    document.querySelector(".prev").addEventListener("click", showPrev);
+
+    // Dots
+    for (let i = 0; i < totalImages; i++) {
+      const dot = document.createElement("div");
+      dot.classList.add("dot");
+      if (i === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => {
+        currentIndex = i;
+        updateCarousel();
+      });
+      dotsContainer.appendChild(dot);
+    }
+
+    // Auto Slide
+    setInterval(showNext, 4000);
+  </script>
+</body>
+</html>
+
